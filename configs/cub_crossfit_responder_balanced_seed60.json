@@ -1,0 +1,13 @@
+{
+  "kind": "resnet18",
+  "seed": 60,
+  "device": "cuda:0",
+  "epochs": 10,
+  "batch_size": 16,
+  "learning_rate": 0.0001,
+  "image_size": 224,
+  "backbone": null,
+  "input_workers": 2,
+  "input_prefetch_batches": 2,
+  "concept_class_weighting": "inverse_frequency"
+}
