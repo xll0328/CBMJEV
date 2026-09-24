@@ -1,0 +1,490 @@
+% LaTeX-ready appendix fragment, not a standalone paper.
+% Requires amsmath, amssymb, amsthm, hyperref in the parent document.
+% The results are scoped analyses, not seven claimed novel theorems.
+\providecommand{\acamE}{\mathbb{E}}
+\providecommand{\acamP}{\mathbb{P}}
+\newtheorem{acamprop}{Proposition}
+
+\section{Scoped analysis of imperfect concept acquisition}
+\label{app:acam-theory}
+
+We give seven finite-scope results that specify implementation invariants,
+analytical test cases, and statistical guardrails. We do not claim that
+these constitute six novel theorems. In particular, the noiseless XOR
+obstruction and coalition lookahead already appear in RouteCert,
+Proposition S2; finite-family risk validation is a standard
+learn-then-test construction. Our analysis parameterizes measurement
+noise and non-additive execution costs to obtain falsifiable experimental
+predictions. It does not establish superiority on real datasets.
+
+\paragraph{Setup.}
+The measurement-item/query-group bank is fixed and finite, with group
+indices $g\in[K]$ and atomic-attribute indices $j\in[D]$; in general
+$K\neq D$. Each group response $Z_g$ has a finite typed space, which may
+be a finite product space of atomic responses (a tuple or vector).
+Acquisition counts and costs below use these measurement items/groups;
+the XOR example is the special case of one bit per group.
+For a data unit $W=(X,C,Y)\sim P$, a responder alone may
+read $X$. It returns automatic measurements, not assumed to equal $C$.
+After $t$ calls the observed transcript is
+$H_t=((A_1,Z_{A_1}),\ldots,(A_t,Z_{A_t}))$, with
+$H_0=\varnothing$. The head reads the canonical observed set $\bar H_t$.
+The controller and candidate generator read only the transcript and
+fixed public parameters. A missing annotation is not a runtime response.
+When batching changes a responder's output, the complete batch, prompt,
+and decoding configuration are part of the action identity.
+
+The action set includes \textnormal{\textsc{Stop}}, which terminates acquisition and
+returns a classification; it does not mean abstention. Bounded-loss
+results below require $0\leq\ell\leq1$. Ordinary unbounded cross-entropy
+does not satisfy this assumption. All results are non-asymptotic.
+
+\begin{acamprop}[T1: structural transcript noninterference]
+\label{prop:acam-noninterference}
+Fix all learned parameters and public configuration. Suppose
+\[
+ A_{t+1}=\pi(H_t,b(H_t),U_{t+1}),\qquad
+ \widehat Y_t=f(\bar H_t),
+\]
+where $U_{t+1}$ is case-independent exogenous randomness and the budget
+$b(H_t)$ is computed from the observed transcript and a fixed public
+cost rule. Neither function nor candidate generation reads $X$,
+unqueried responses, labels, input length, measured latency, or
+annotation-missingness metadata.
+
+For every legal transcript $h$, every pair $x,x'$, and every common
+random seed $u$, replaying $h$ yields identical next actions and current
+predictions before the next genuine responder call. If future responder
+outputs are also coupled to be identical by a replay hook, the complete
+remaining action, stopping, and prediction trajectories are identical.
+Nevertheless, the terminal acquisition mask may perfectly predict $Y$.
+\end{acamprop}
+
+\begin{proof}
+At the same $h$, the budget, candidate set, and head output are equal
+because they are the same functions evaluated at the same arguments.
+Using the same $u$ makes the controller output equal. If the action is
+\textnormal{\textsc{Stop}}, replay terminates identically. Otherwise a common replay
+response produces the same updated transcript. Finite induction proves
+the complete-trajectory statement. Integrating over identical
+case-independent randomization gives equality of replay distributions.
+This is a structural replay statement, not an unqualified observational
+conditional-independence claim.
+
+For the mask counterexample, let $C_1=Y\sim\operatorname{Bernoulli}(1/2)$
+and measure $C_1$ without error. Always query concept 1 first. If its value
+is 1, query an irrelevant concept 2 and stop; otherwise stop immediately.
+All routing uses acquired evidence only. Yet the terminal mask is
+$\{1,2\}$ exactly when $Y=1$, so its indicator predicts $Y$ perfectly.
+\end{proof}
+
+This result does not establish the semantic truth of responses or causal
+interpretability. A genuine next measurement may change after replacing
+$x$; only the pre-measurement controller and head are held invariant.
+If measured latency or token counts update a controller-visible budget,
+they form additional input-dependent channels and must either be
+excluded from the strict variant or explicitly audited.
+
+\begin{acamprop}[T2: finite-action decision stability]
+\label{prop:acam-regret}
+At a fixed reachable history $h$, let $\mathcal A(h)$ be finite and
+nonempty. For each action $a$, let $r_a\in[0,1]$ be the true expected loss
+after taking $a$ and immediately classifying with a fixed head, and let
+$\kappa_a\geq0$ be its expected incremental cost. The incremental cost of
+\textnormal{\textsc{Stop}} is zero. Fix $\lambda\geq0$ and assume
+\[
+ \max_a|\widehat r_a-r_a|\leq\epsilon,\qquad
+ \max_a|\widehat\kappa_a-\kappa_a|\leq\eta.
+\]
+If $\widehat a$ minimizes the estimated risk-plus-cost objective up to
+$\xi\geq0$, and $a^*$ minimizes the true objective on the same action
+set, then
+\[
+ 0\leq
+ (r_{\widehat a}+\lambda\kappa_{\widehat a})
+ -(r_{a^*}+\lambda\kappa_{a^*})
+ \leq2\epsilon+2\lambda\eta+\xi.
+\]
+\end{acamprop}
+
+\begin{proof}
+Write $J_a=r_a+\lambda\kappa_a$,
+$\widehat J_a=\widehat r_a+\lambda\widehat\kappa_a$, and
+$d=\epsilon+\lambda\eta$. The triangle inequality gives
+$|J_a-\widehat J_a|\leq d$ simultaneously for all actions. Consequently,
+\[
+ J_{\widehat a}\leq\widehat J_{\widehat a}+d
+ \leq\widehat J_{a^*}+d+\xi
+ \leq J_{a^*}+2d+\xi.
+\]
+The lower bound follows from the optimality of $a^*$. If the unique
+optimal action has gap greater than $2d+\xi$, the same bound rules out
+selection of a suboptimal action.
+\end{proof}
+
+\paragraph{Conditional finite-horizon extension.}
+Suppose there are at most $T$ decisions, with zero-cost absorbing states
+after stopping. Let $Q_t^*(h,a)$ be the true Bellman action value for the
+same terminal loss plus $\lambda$ times all future costs. A reachable
+history here means one reachable from the same initial conditions under
+the true transition mechanism by any legal action sequence or policy
+in the compared action class. In particular, this includes every
+history visited by the learned policy $\widehat\pi$, not merely the
+support of training histories or an oracle policy. If
+$|\widehat Q_t(h,a)-Q_t^*(h,a)|\leq d_t$ for every such history and every
+legal action there, and the policy is $\xi_t$-greedy with respect to
+$\widehat Q_t$, then
+\[
+ J^{\widehat\pi}(H_0)-J^{\pi^*}(H_0)
+ \leq\sum_{t=1}^T(2d_t+\xi_t).
+\]
+Indeed, the preceding argument yields
+$Q_t^*(h,\widehat a_t)-V_t^*(h)\leq2d_t+\xi_t$. With
+$D_t(h)=V_t^{\widehat\pi}(h)-V_t^*(h)$, Bellman recursion gives
+\[
+ D_t(h)\leq2d_t+\xi_t+
+ \acamE[D_{t+1}(H_{t+1})\mid h,\widehat a_t].
+\]
+Backward induction from $D_{T+1}=0$ proves the claim. A one-step risk
+model is not $Q_t^*$, and low average Brier loss does not establish these
+uniform assumptions. No finite-sample learning bound for $d_t$ is claimed.
+
+\begin{acamprop}[T3: execution-cost feasibility]
+\label{prop:acam-cost}
+Fix a backend, precision, input size, concurrency, and caching protocol,
+and use a single common cost unit. Suppose the full-query baseline costs
+$T_{\rm full}=s+d_K+h$, where $s$ is shared encoding, $d_K$ is the full
+response cost, and $h$ is the final head cost. An adaptive run makes
+$\tau$ calls, pays nonnegative response costs $d(A_t)$, the same final
+$h$, and nonnegative extra controller, intermediate-head, and
+communication cost $O$. Assume finite expectations.
+
+If encoding is cached once whenever $\tau\geq1$, with
+$p_0=\acamP(\tau=0)$, then
+\[
+ T_{\rm full}-\acamE T_{\rm adapt}
+ =p_0s+d_K-\acamE\sum_{t=1}^{\tau}d(A_t)-\acamE O.
+\]
+If every call re-encodes the input, then
+\[
+ T_{\rm full}-\acamE T_{\rm adapt}
+ =(1-\acamE\tau)s+d_K-\acamE\sum_{t=1}^{\tau}d(A_t)-\acamE O.
+\]
+For a nonempty deterministic run with per-call setup cost $a$, per-concept
+cost $d$, per-call controller cost $o$, total queried count $q$, and
+$\tau\geq1$ calls, adaptive execution is strictly cheaper than one full
+batch if and only if
+\[
+ d(K-q)>a(\tau-1)+o\tau.
+\]
+Here common encoding and final-head costs cancel.
+\end{acamprop}
+
+\begin{proof}
+In the cached case,
+$T_{\rm adapt}=\mathbf1\{\tau\geq1\}s+\sum_td(A_t)+O+h$.
+Take expectations and subtract from $s+d_K+h$. Replacing the first term
+by $\tau s$ proves the re-encoding identity. For the last claim subtract
+$s+a\tau+dq+o\tau+h$ from $s+a+dK+h$ and rearrange.
+\end{proof}
+
+In particular, if $p_0=0$ and expected response plus extra overhead is at
+least $d_K$, no average saving is possible in this model. Even with free
+responses and control, the cached speedup is at most
+$(s+d_K+h)/(s+h)$ when $s+h>0$. An empty-history stop cannot selectively
+identify easy cases without previously paid evidence or an additional
+input channel. These are accounting statements within a specified cost
+model, not universal computational lower bounds. Asynchronous overlap,
+dynamic batching, and cache-dependent answers require fresh measurements.
+
+\begin{acamprop}[T4: imperfect complementary measurements]
+\label{prop:acam-xor}
+Let $C_1,C_2$ be independent uniform bits, $Y=C_1\oplus C_2$, and
+$Z_j=C_j\oplus E_j$, where
+$E_1,E_2\stackrel{\rm iid}{\sim}\operatorname{Bernoulli}(\rho)$ are
+independent of $(C_1,C_2)$ and $0\leq\rho\leq1/2$. Measurements are fixed
+once per case, and classification is Bayes-optimal under zero-one loss.
+Then
+\[
+ R_\varnothing=R_{\{1\}}=R_{\{2\}}=\frac12,\qquad
+ R_{\{1,2\}}=2\rho(1-\rho),
+\]
+and the joint acquisition value is
+\[
+ \Delta_{12}=\frac12(1-2\rho)^2.
+\]
+A myopic exact risk-plus-cost controller restricted to single queries
+and \textnormal{\textsc{Stop}} stops immediately if both single-query penalties are
+strictly positive. A pair action of cost $\kappa_{12}$ is strictly better
+than stopping precisely when
+\[
+ \lambda\kappa_{12}<\frac12(1-2\rho)^2.
+\]
+Writing $v=\lambda\kappa_{12}$, the favorable region for $0\leq v<1/2$ is
+$0\leq\rho<(1-\sqrt{2v})/2$; no strict improvement is possible for
+$v\geq1/2$. Equalities describe ties.
+\end{acamprop}
+
+\begin{proof}
+The unobserved label is uniform. Conditioning on $Z_1$ leaves $C_2$ an
+independent uniform bit, so $Y$ remains uniform; the same holds for
+$Z_2$. Thus the empty and singleton Bayes errors equal $1/2$.
+
+Let $E=(E_1,E_2)$ and $Z=(Z_1,Z_2)$. For every $e,z\in\{0,1\}^2$,
+\[
+ \acamP(E=e,Z=z)=\acamP(E=e)\acamP(C=z\oplus e)
+ =\tfrac14\acamP(E=e).
+\]
+Hence $E$ is independent of $Z$. The parity noise
+$N=E_1\oplus E_2$ has probability
+$q=2\rho(1-\rho)\leq1/2$, and
+$Y=Z_1\oplus Z_2\oplus N$. Conditional on $Z$, predicting the observed
+parity is Bayes-optimal and errs with probability $q$. Subtracting $q$
+from $1/2$ gives the stated value.
+
+Each singleton has objective $1/2+\lambda\kappa_j>1/2$, whereas stopping
+has objective $1/2$. The pair has objective
+$2\rho(1-\rho)+\lambda\kappa_{12}$; comparison with $1/2$ gives the
+criterion. Because $1-2\rho\geq0$, taking the nonnegative square root
+gives the threshold. The maximal gain is $1/2$, proving the remaining
+boundary cases.
+\end{proof}
+
+\paragraph{Correlated-error extension.}
+Keep $E$ independent of the uniform concept vector but allow dependence
+between $E_1$ and $E_2$. The preceding factorization still holds. With
+$d=\acamP(E_1\neq E_2)$, the Bayes pair error is
+$\min(d,1-d)$ and the value is $1/2-\min(d,1-d)$. For identical marginal
+error $\rho$, let $u=\acamP(E_1=E_2=1)$; then $d=2\rho-2u$.
+At $\rho=1/4$, independent errors give pair error $3/8$, perfectly
+same-direction errors give zero, and mutually exclusive errors give
+$1/2$. All have marginal concept accuracy $3/4$. Thus error dependence
+interacts with the task; stronger correlation is not uniformly harmful.
+
+This construction does not defeat every sequential policy: two-step
+lookahead, an optimal Bellman policy, and forced acquisition of both
+features can succeed. It also does not prove an instance-adaptive
+advantage: a static pair attains exactly the same risk as the pair-aware
+controller. Those controls are required in the mechanism experiment.
+
+\begin{acamprop}[T5: finite-family terminal-risk validation]
+\label{prop:acam-certification}
+Condition on training and design data. Fix $M\geq1$ complete systems
+before observing an independent calibration sample of $n\geq1$ iid
+deployment-distributed cases. Each system includes its responder, head,
+controller, stopping thresholds, and failure handling. Randomized
+rollouts use independent deployment-distributed randomness across cases;
+different systems may be dependent on the same case. Each complete case
+produces one terminal loss $L_{i,m}\in[0,1]$. Define
+\[
+ R_m=\acamE L_{i,m},\quad
+ \widehat R_m=\frac1n\sum_{i=1}^nL_{i,m},\quad
+ \gamma=\sqrt{\frac{\log(M/\delta)}{2n}},\quad 0<\delta<1,
+\]
+\[
+ U_m=\min\{1,\widehat R_m+\gamma\},\qquad
+ \mathcal C_\alpha=\{m:U_m\leq\alpha\},\quad 0\leq\alpha\leq1.
+\]
+With probability at least $1-\delta$, all $R_m\leq U_m$ simultaneously.
+For any data-dependent choice $\widehat m\in\mathcal C_\alpha$ whenever
+that set is nonempty,
+\[
+ \acamP\{\mathcal C_\alpha\neq\varnothing
+          \text{ and }R_{\widehat m}>\alpha\}\leq\delta.
+\]
+\end{acamprop}
+
+\begin{proof}
+For completeness, let $X\in[0,1]$ and
+$\psi(t)=\log\acamE e^{t(X-\acamE X)}$. Boundedness permits two
+derivatives. Under exponential tilting,
+$\psi''(t)=\operatorname{Var}_t(X)\leq1/4$, since every distribution
+supported on $[0,1]$ satisfies
+$\operatorname{Var}(X)\leq\acamE(X-1/2)^2\leq1/4$.
+Together with $\psi(0)=\psi'(0)=0$, integrating twice yields
+$\psi(t)\leq t^2/8$ for positive or negative $t$.
+For a fixed system, independence across cases therefore gives
+\[
+ \acamE\exp\left(t\sum_i(R_m-L_{i,m})\right)
+ \leq\exp(nt^2/8),\qquad t>0.
+\]
+Markov's inequality, optimized at $t=4\gamma$, yields
+\[
+ \acamP(R_m-\widehat R_m>\gamma)
+ \leq\inf_{t>0}e^{-tn\gamma+nt^2/8}
+ =e^{-2n\gamma^2}=\delta/M.
+\]
+A union bound gives simultaneous validity; independence among systems
+is unnecessary. Clipping at 1 preserves an upper bound because $R_m\leq1$.
+On the simultaneous-validity event, every member of
+$\mathcal C_\alpha$ has $R_m\leq U_m\leq\alpha$, regardless of how a
+member is selected.
+\end{proof}
+
+The guarantee concerns population-average terminal loss, not individual
+cases, terminal-pattern subgroups, or selective risk conditional on
+answering. Within-case observations and stopping may be dependent:
+the independent unit is the complete case. Related edits and repeated
+patient images must not be counted as iid cases. If the certified set is
+empty, the procedure supplies no certificate. Retraining, unregistered
+threshold search, changing prompts, or deployment drift changes the
+certified object. For $M=20,\delta=0.05,n=203$, the margin is about
+$0.12148$, so even zero empirical errors cannot certify a $0.10$ target
+with this particular bound.
+
+\begin{acamprop}[T6: selection and calibration]
+\label{prop:acam-selection}
+Marginal calibration does not imply calibration after history-based
+selection. However, if $C\in[0,1]$,
+$p=\acamE[C\mid\mathcal F]$, and the selection indicator $J$ is
+$\mathcal F$-measurable, then
+\[
+ \acamE[C\mid\sigma(p,J)]=p\quad\text{almost surely}.
+\]
+\end{acamprop}
+
+\begin{proof}
+For the counterexample, acquire $S\sim\operatorname{Bernoulli}(1/2)$
+and let a different target concept be $C=S$. Assign that concept the
+constant score $p=1/2$. Then $\acamE[C\mid p]=1/2=p$, so marginal
+calibration is exact. Select this concept only when $S=1$, using only
+previously acquired evidence. On the selected subset,
+$\acamE[C\mid p=1/2,J=1]=1$, which differs from the reported score.
+The example establishes possibility, not the optimality of querying a
+redundant concept.
+
+For the positive claim, both $p$ and $J$ are $\mathcal F$-measurable.
+The tower property gives
+\[
+ \acamE[C\mid\sigma(p,J)]
+ =\acamE[\acamE[C\mid\mathcal F]\mid\sigma(p,J)]
+ =\acamE[p\mid\sigma(p,J)]=p.
+\]
+Independent selection randomization can be incorporated into
+$\mathcal F$ without changing $\acamE[C\mid\mathcal F]$.
+\end{proof}
+
+Thus adaptivity need not invalidate a correct full-information
+conditional probability. The concern is that marginal calibration is
+weaker than conditioning on all information used to select a query.
+
+\begin{acamprop}[T7: conditional-ranking gap]
+\label{prop:acam-conditional-gap}
+Suppose a paid first semantic query reveals $U$, followed by one action
+from a common finite feasible set $\mathcal A$. Fix the response mechanism,
+terminal head, loss, and remaining costs. For each action $a$, let $L_a$
+be its integrable terminal loss plus cost and let
+$q_a(u)=\acamE[L_a\mid U=u]$. The optimal static and $U$-adaptive
+second-action risks are
+\[
+ R_{\rm stat}=\min_{a\in\mathcal A}\acamE q_a(U),\qquad
+ R_{\rm dyn}=\acamE\min_{a\in\mathcal A}q_a(U).
+\]
+Their gap $G=R_{\rm stat}-R_{\rm dyn}$ is nonnegative, and is zero if and
+only if some fixed action is conditionally optimal almost surely. With
+two actions, writing $d(U)=q_1(U)-q_2(U)$,
+\[
+ G=\tfrac12\bigl(\acamE|d(U)|-|\acamE d(U)|\bigr). \tag{T7}
+\]
+If a deployable estimate satisfies
+$\sup_a|\widehat q_a(u)-q_a(u)|\leq\epsilon$ almost surely, its
+pointwise minimizer has expected risk at most $R_{\rm dyn}+2\epsilon$.
+\end{acamprop}
+
+\begin{proof}
+Pointwise, $\min_bq_b(U)\leq q_a(U)$ for every fixed $a$; taking
+expectations and then minimizing over $a$ gives $G\geq0$. Let $a^*$
+minimize the static risk, which exists because $\mathcal A$ is finite.
+If $G=0$, the nonnegative random variable
+$q_{a^*}(U)-\min_bq_b(U)$ has zero mean and thus vanishes almost surely.
+The converse is immediate. For two actions, use
+$\min(v,w)=(v+w-|v-w|)/2$ both before and after taking expectations.
+Finally, for a true conditional minimizer $a_u^*$ and the learned
+minimizer $\widehat a(u)$, pointwise
+\[
+ q_{\widehat a}(u)
+ \leq\widehat q_{\widehat a}(u)+\epsilon
+ \leq\widehat q_{a_u^*}(u)+\epsilon
+ \leq q_{a_u^*}(u)+2\epsilon.
+\]
+Taking expectations proves the last assertion.
+\end{proof}
+
+This standard decision identity is a diagnostic, not a novel algorithm
+guarantee. The CUB OOF-fit/validation-evaluate two-query pilot shows a
+local automatic-concept cross-entropy signal, with mixed accuracy, but
+does not estimate the population-optimal gap or establish K16, stopping,
+JEV-specific, real-cost, or independent-test gains. Changing candidate
+menus requires a separately defined static comparator and assumptions.
+
+\begin{acamprop}[T8: softmax-imitation ranking can invert expected utility]
+\label{prop:acam-choice-softmax-gap}
+At one fixed controller-visible state, let the legal set contain STOP
+and 28 unit-cost singleton queries. For binary realized terminal errors,
+define per-case utility $u_a=e_a+\lambda\mathbf{1}\{a\ne\mathrm{STOP}\}$ and the
+complete-set teacher $q_a=\exp(-u_a/\theta)/\sum_b\exp(-u_b/\theta)$.
+Even with $\lambda=0.03$ and $\theta=0.5$, an exact population minimizer
+of cross-entropy to this teacher can select an action with strictly
+higher expected utility than another feasible action.
+\end{acamprop}
+
+\begin{proof}
+Name three queries $A,B,C$ and the other 25 dummy queries. Two case types
+are indistinguishable at the fixed visible state. Type I has probability
+$p=0.52$, and type II has probability $1-p$. In the coordinate order
+$(\mathrm{STOP},A,B,C,\mathrm{dummy})$, their binary error vectors are
+\[
+ (1,0,1,0,1)\quad\text{and}\quad(1,1,0,1,1),
+\]
+where every dummy has error one. Thus
+$\acamE u_A=\acamE u_C=1-p+\lambda=0.51$ and
+$\acamE u_B=p+\lambda=0.55$; STOP and dummy expected utilities are one
+and $1+\lambda$. For example, these errors are realizable with hidden
+class labels one and two for types I and II, a fixed head predicting
+class zero at STOP/after dummy queries, class one after $A$ or $C$, and
+class two after $B$; the singleton answers may be constant. No type
+indicator enters the controller-visible state.
+
+Put $r=\exp(-1/\theta)$ and $c=\exp(-\lambda/\theta)$. The two teacher
+normalizers are
+\[
+ D_I=2c+26cr+r,\qquad D_{II}=c+27cr+r.
+\]
+Their difference is $c(1-r)>0$. In particular,
+\[
+ \acamE(q_A-q_B)=c(1-r)
+   \left(\frac{p}{D_I}-\frac{1-p}{D_{II}}\right)<0
+\]
+because $p=0.52<D_I/(D_I+D_{II})\simeq0.541331$. Direct substitution
+gives $\acamE q_B\simeq0.112475>\acamE q_A=\acamE q_C\simeq0.105373$;
+STOP and every dummy have smaller mean teacher probability. For a
+fixed visible state the expected soft-target cross-entropy is minimized
+uniquely by $\pi_a=\acamE q_a$, since every mean probability is positive and
+the excess cross-entropy is $D_{\rm KL}(\acamE q\Vert\pi)$. Its argmax
+therefore selects $B$, although $A$ or $C$ has expected utility lower
+by $0.04$.
+\end{proof}
+
+This is a counterexample to a Bayes-optimality interpretation of
+one-step softmax Choice imitation, not a claim that the fitted CUB policy
+fails or that a separate multi-step Bellman target is inconsistent. It
+uses the same STOP/singleton menu, Boolean errors, unit group costs,
+$\lambda$, and temperature as the current structured Choice pilot; its
+two hidden case types are not asserted to describe CUB.
+
+\paragraph{Scope and primary references.}
+The concentration background is Hoeffding (1963),
+\href{https://doi.org/10.1080/01621459.1963.10500830}
+{Probability Inequalities for Sums of Bounded Random Variables}.
+The finite-family protocol is a conservative instance of
+\href{https://arxiv.org/abs/2110.01052}{Learn then Test}.
+\href{https://arxiv.org/html/2606.16667v4}{BCEA, version 4}
+already incorporates acquisition into post-acquisition recalibration;
+its strict finite-grid procedure and practical threshold scans must not
+be conflated.
+\href{https://arxiv.org/html/2608.15520v2}{RouteCert, version 2}
+already studies complete policy--pattern validation and the noiseless
+XOR obstruction. We make no first-of-its-kind calibration or
+complementarity claim. The proof-obligation ledger separately records
+unverified empirical assumptions, including learned value accuracy,
+semantic fidelity, iid case structure, and real execution costs.

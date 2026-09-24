@@ -1,0 +1,40 @@
+{
+  "schema_version": "cbmjev-config-v1",
+  "seed": 41,
+  "device": "cuda:0",
+  "learning": {
+    "objective": "value",
+    "hidden": 128,
+    "head_epochs": 30,
+    "policy_epochs": 30,
+    "batch_size": 64,
+    "learning_rate": 0.0003,
+    "masks_per_sample": 8,
+    "include_pairs": true,
+    "include_all": true,
+    "max_pair_actions": 8
+  },
+  "policy": {
+    "cost_weight": 0.03,
+    "max_groups": 4,
+    "max_cost": null
+  },
+  "cost": {
+    "setup": 0,
+    "call": 0,
+    "per_group": 1,
+    "units": "declared_query_units"
+  },
+  "evaluation": {
+    "methods": [
+      "stop",
+      "all",
+      "static",
+      "static_value",
+      "value_singleton",
+      "value"
+    ],
+    "bootstrap_resamples": 1000,
+    "lookahead_depth": 2
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "verified_at": "2026-09-21",
+  "scope": "Primary-source metadata and bounded methodological reading for adaptive concept measurement; not an exhaustive review or result reproduction.",
+  "reading_status_note": "sections_read means selected main-text or appendix sections were read, not that the whole paper or every proof was verified. No listed result was independently reproduced.",
+  "sources": [
+    {
+      "id": "S01", "title": "Look Again Before You Abstain:Budgeted Conformal Evidence Acquisition for Reliable Vision-Language Model", "year": 2026,
+      "venue_or_status": "arXiv preprint; no accepted venue verified", "url": "https://arxiv.org/abs/2606.16667",
+      "text_url": "https://arxiv.org/html/2606.16667v4", "version_read": "v4, with earlier v2 comparison",
+      "reading_status": "sections_read", "sections_read": ["abstract", "introduction", "acquisition and calibration methods", "exact versus practical calibration discussion", "selected experiments and limitations"],
+      "notes": "Canonical abstract-page title uses singular Model; HTML title differs. v4 distinguishes corrected finite-grid exact method from potentially anti-conservative practical threshold scan."
+    },
+    {
+      "id": "S02", "title": "Conditional Validity for Adaptive Modality Acquisition: When the Policy Chooses Its Own Calibration Group", "year": 2026,
+      "venue_or_status": "arXiv preprint; no accepted venue verified", "url": "https://arxiv.org/abs/2608.15520",
+      "text_url": "https://arxiv.org/html/2608.15520v2", "version_read": "v2, with v1 method reading",
+      "reading_status": "sections_read", "sections_read": ["abstract", "sections 1-5", "selected experiments", "selected assumptions and appendix discussion"],
+      "notes": "RouteCert; additive source costs; terminal-pattern risk and complete-policy/pattern certification. Reference-model agreement and true-label targets are distinct. v1 had a different title."
+    },
+    {
+      "id": "S03", "title": "Explanations-Driven Active Feature Acquisition for Algorithmic Recourse", "year": 2026,
+      "venue_or_status": "arXiv preprint; no accepted venue verified", "url": "https://arxiv.org/abs/2609.12179",
+      "text_url": "https://arxiv.org/html/2609.12179v1", "version_read": "v1",
+      "reading_status": "sections_read", "sections_read": ["abstract", "Markov Blanket and acquisition method", "validity and calibration method", "selected experiments and ablations"],
+      "notes": "Official initial submission 2026-09-10. Recourse validity is not automatically true-label classification risk."
+    },
+    {
+      "id": "S04", "title": "BRiG-AFA: Bellman Risk-to-Go Learning for Non-Myopic Active Feature Acquisition", "year": 2026,
+      "venue_or_status": "arXiv preprint; no accepted venue verified", "url": "https://arxiv.org/abs/2608.02305",
+      "text_url": "https://arxiv.org/html/2608.02305v1", "version_read": "v1",
+      "reading_status": "sections_read", "sections_read": ["abstract", "risk-to-go and Bellman training method", "experimental settings", "limitations"],
+      "notes": "Observed values/mask/candidate/budget only; direct overlap with supervised risk-to-go head. The authors explicitly delimit evidence short of comprehensive SOTA comparison."
+    },
+    {
+      "id": "S05", "title": "Acquisition Conditioned Oracle for Nongreedy Active Feature Acquisition", "year": 2024,
+      "venue_or_status": "ICML 2024, PMLR 235:48957-48975", "url": "https://proceedings.mlr.press/v235/valancius24a.html",
+      "text_url": "https://raw.githubusercontent.com/mlresearch/v235/main/assets/valancius24a/valancius24a.pdf",
+      "reading_status": "sections_read", "sections_read": ["official abstract and metadata", "oracle acquisition methodology"],
+      "notes": "Strong published nongreedy AFA baseline; no blanket claim of superiority in our task has been verified."
+    },
+    {
+      "id": "S06", "title": "Stochastic Encodings for Active Feature Acquisition", "year": 2025,
+      "venue_or_status": "ICML 2025, PMLR 267:46784-46814", "url": "https://proceedings.mlr.press/v267/norcliffe25a.html",
+      "text_url": "https://raw.githubusercontent.com/mlresearch/v267/main/assets/norcliffe25a/norcliffe25a.pdf",
+      "reading_status": "sections_read", "sections_read": ["official abstract and metadata", "main method excerpts", "Appendix D noisy-feature experiment"],
+      "notes": "SEFA; noisy-feature appendix uses synthetic Gaussian corruption, not a verified semantic-response error study."
+    },
+    {
+      "id": "S07", "title": "Joint Active Feature Acquisition and Classification with Variable-Size Set Encoding", "year": 2018,
+      "venue_or_status": "NeurIPS 2018", "url": "https://papers.nips.cc/paper_files/paper/2018/hash/e5841df2166dd424a57127423d276bbe-Abstract.html",
+      "reading_status": "sections_read", "sections_read": ["official abstract and metadata", "set encoding and acquisition/classification formulation"],
+      "notes": "Historical joint learning and variable-size observed-set baseline."
+    },
+    {
+      "id": "S08", "title": "Near-optimal Bayesian Active Learning with Correlated and Noisy Tests", "year": 2017,
+      "venue_or_status": "AISTATS 2017, PMLR 54:223-231", "url": "https://proceedings.mlr.press/v54/chen17b.html",
+      "text_url": "https://proceedings.mlr.press/v54/chen17b/chen17b.pdf",
+      "reading_status": "sections_read", "sections_read": ["official abstract and metadata", "introduction", "problem formulation"],
+      "notes": "ECED; correlated noisy tests are explicit. Approximation proofs not independently checked. Preprint originally 2016."
+    },
+    {
+      "id": "S09", "title": "Near-Optimal Bayesian Active Learning with Noisy Observations", "year": 2010,
+      "venue_or_status": "NeurIPS 2010 (then NIPS), volume 23", "url": "https://papers.nips.cc/paper_files/paper/2010/hash/1e6e0a04d20f50967c64dac2d639a577-Abstract.html",
+      "text_url": "https://arxiv.org/abs/1010.3091",
+      "reading_status": "abstract_only", "sections_read": ["official abstract and metadata"],
+      "notes": "EC2 historical noisy-test/equivalence-class acquisition. Full assumptions and proof not read in this bounded review."
+    },
+    {
+      "id": "S10", "title": "Selective \"Selective Prediction\": Reducing Unnecessary Abstention in Vision-Language Reasoning", "year": 2024,
+      "venue_or_status": "Findings of ACL 2024; acceptance confirmed on author-submitted arXiv record", "url": "https://arxiv.org/abs/2402.15610",
+      "text_url": "https://arxiv.org/html/2402.15610v2", "version_read": "v2",
+      "reading_status": "sections_read", "sections_read": ["abstract", "sections 1-3", "algorithm", "confidence and evidence reliability discussion"],
+      "notes": "ReCoVERR; evidence questions conditioned on previous evidence. Does not establish a general finite-sample selective-risk theorem in the read method."
+    },
+    {
+      "id": "S11", "title": "Interactive Concept Bottleneck Models", "year": 2023,
+      "venue_or_status": "AAAI 2023", "url": "https://ojs.aaai.org/index.php/AAAI/article/view/25736",
+      "text_url": "https://ojs.aaai.org/index.php/AAAI/article/view/25736/25508",
+      "reading_status": "sections_read", "sections_read": ["official abstract and metadata", "concept intervention selection method"],
+      "notes": "CooP; primarily human concept correction, not annotation-free automatic concept measurements."
+    },
+    {
+      "id": "S12", "title": "Learning to Receive Help: Intervention-Aware Concept Embedding Models", "year": 2023,
+      "venue_or_status": "NeurIPS 2023", "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/770cabd044c4eacb6dc5924d9a686dce-Abstract.html",
+      "text_url": "https://arxiv.org/abs/2309.16928",
+      "reading_status": "sections_read", "sections_read": ["official abstract and metadata", "simulated intervention-aware training and policy method"],
+      "notes": "IntCEM; simulated help and concept embeddings must not be conflated with strict hard semantic measurements."
+    },
+    {
+      "id": "S13", "title": "Addressing Leakage in Concept Bottleneck Models", "year": 2022,
+      "venue_or_status": "NeurIPS 2022", "url": "https://papers.neurips.cc/paper_files/paper/2022/hash/944ecf65a46feb578a43abfd5cddd960-Abstract-Conference.html",
+      "text_url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/944ecf65a46feb578a43abfd5cddd960-Paper-Conference.pdf",
+      "reading_status": "sections_read", "sections_read": ["abstract", "hard and autoregressive concept method", "side-channel distinction"],
+      "notes": "Autoregressive concept predictor is distinct from adaptive selection of the next concept."
+    },
+    {
+      "id": "S14", "title": "Matryoshka Concept Bottleneck Models", "year": 2026,
+      "venue_or_status": "arXiv preprint; no accepted venue verified", "url": "https://arxiv.org/abs/2605.20612",
+      "text_url": "https://arxiv.org/html/2605.20612v3", "version_read": "v3",
+      "reading_status": "sections_read", "sections_read": ["abstract", "nested ordering and heads", "intervention procedure", "selected theoretical assumptions"],
+      "notes": "Static global nested concept ordering. Logarithmic cost statement not adopted as a hardware-compute guarantee."
+    },
+    {
+      "id": "S15", "title": "Selective Concept Bottleneck Models Without Predefined Concepts", "year": 2025,
+      "venue_or_status": "Transactions on Machine Learning Research, May 2025", "url": "https://lmb.informatik.uni-freiburg.de/Publications/2025/SAB25/paper-ucbm.pdf",
+      "metadata_url": "https://lmb.informatik.uni-freiburg.de/Publications/?article=TMLR&year=2025",
+      "reading_status": "sections_read", "sections_read": ["published paper metadata", "concept selection method", "sparsity definition and experiments"],
+      "notes": "Input-dependent sparsity does not by itself establish avoided concept-extraction compute."
+    },
+    {
+      "id": "S16", "title": "Zero-Shot Active Feature Acquisition via LLM-Elicitation", "year": 2026,
+      "venue_or_status": "arXiv preprint; no accepted venue verified", "url": "https://arxiv.org/abs/2606.18933",
+      "text_url": "https://arxiv.org/html/2606.18933v1", "version_read": "v1",
+      "reading_status": "sections_read", "sections_read": ["abstract", "section 1.1 acquisition assumptions", "LLM elicitation and inference method"],
+      "notes": "LLM offline prior elicitation is distinct from a noisy online concept responder."
+    },
+    {
+      "id": "S17", "title": "Learning-To-Measure: In-Context Active Feature Acquisition", "year": 2025,
+      "venue_or_status": "arXiv preprint; no accepted venue verified", "url": "https://arxiv.org/abs/2510.12624",
+      "text_url": "https://arxiv.org/html/2510.12624v2", "version_read": "v2 revised in 2026",
+      "reading_status": "sections_read", "sections_read": ["abstract", "pretraining and in-context acquisition method"],
+      "notes": "No task-specific trajectory supervision is not the same as no pretraining data."
+    },
+    {
+      "id": "S18", "title": "Towards Cost Sensitive Decision Making", "year": 2025,
+      "venue_or_status": "AISTATS 2025, PMLR 258:3601-3609", "url": "https://proceedings.mlr.press/v258/li25h.html",
+      "text_url": "https://raw.githubusercontent.com/mlresearch/v258/main/assets/li25h/li25h.pdf",
+      "reading_status": "sections_read", "sections_read": ["official abstract and metadata", "AA-POMDP and acquisition-mode formulation"],
+      "notes": "Active acquisition within sequential decision environments, broader than fixed-instance concept classification."
+    },
+    {
+      "id": "S19", "title": "Learn then Test: Calibrating Predictive Algorithms to Achieve Risk Control", "year": 2025,
+      "preprint_year": 2021, "venue_or_status": "The Annals of Applied Statistics, 19(2), 2025", "url": "https://arxiv.org/abs/2110.01052",
+      "metadata_url": "https://www.gsb.stanford.edu/faculty-research/publications/learn-then-test-calibrating-predictive-algorithms-achieve-risk",
+      "doi": "10.1214/24-AOAS1998",
+      "reading_status": "abstract_only", "sections_read": ["arXiv abstract", "author institutional publication metadata"],
+      "notes": "Publisher page returned no readable body in this run. General framework confirmed; no claim of a full proof audit."
+    },
+    {
+      "id": "S20", "title": "CAP: A General Algorithm for Online Selective Conformal Prediction with FCR Control", "year": 2025,
+      "venue_or_status": "Journal of Machine Learning Research, 26(287):1-74, 2025", "url": "https://jmlr.org/papers/v26/24-0452.html",
+      "text_url": "https://jmlr.org/papers/volume26/24-0452/24-0452.pdf",
+      "reading_status": "abstract_only", "sections_read": ["official abstract and metadata"],
+      "notes": "Online individual selection and FCR/selection-conditional coverage, not a direct CBM trajectory-risk result."
+    },
+    {
+      "id": "S21", "title": "Interpretable Reward Modeling with Active Concept Bottlenecks", "year": 2025,
+      "venue_or_status": "arXiv preprint; no accepted venue verified", "url": "https://arxiv.org/abs/2507.04695",
+      "reading_status": "abstract_only", "sections_read": ["arXiv abstract metadata returned in primary-source search result"],
+      "notes": "Active concept annotation for reward modeling; included to disambiguate active-training annotation from inference-time automatic measurement. No detailed method claim made."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "seed": 17,
+  "device": "cuda:0",
+  "learning": {
+    "objective": "value", "hidden": 128,
+    "head_epochs": 2, "policy_epochs": 1, "batch_size": 64,
+    "learning_rate": 0.001, "masks_per_sample": 2,
+    "include_pairs": true, "include_all": true, "max_pair_actions": 8
+  },
+  "evaluation": {"methods": ["static", "static_value", "value_singleton", "value"]}
+}

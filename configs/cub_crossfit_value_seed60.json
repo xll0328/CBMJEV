@@ -1,0 +1,48 @@
+{
+  "schema_version": "cbmjev-config-v1",
+  "seed": 60,
+  "device": "cuda:0",
+  "learning": {
+    "objective": "value",
+    "hidden": 256,
+    "head_epochs": 50,
+    "policy_epochs": 30,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "masks_per_sample": 4,
+    "include_pairs": true,
+    "include_all": true,
+    "max_pair_actions": 8,
+    "actions_per_state": 64,
+    "weight_decay": 0.0,
+    "dropout": 0.0,
+    "deterministic": true,
+    "cpu_threads": 1,
+    "class_weighting": "none"
+  },
+  "policy": {
+    "cost_weight": 0.03,
+    "max_groups": null,
+    "max_cost": null
+  },
+  "cost": {
+    "setup": 0.0,
+    "call": 0.0,
+    "per_group": 1.0,
+    "units": "declared_query_units"
+  },
+  "evaluation": {
+    "methods": [
+      "stop",
+      "all",
+      "fixed",
+      "random",
+      "static",
+      "value",
+      "value_singleton",
+      "static_value"
+    ],
+    "bootstrap_resamples": 1000,
+    "lookahead_depth": 2
+  }
+}

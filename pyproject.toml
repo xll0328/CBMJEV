@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cbmjev"
+version = "0.1.0"
+description = "Research implementation of auditable adaptive concept acquisition"
+requires-python = ">=3.9"
+dependencies = ["torch>=2.2", "numpy>=1.24", "Pillow>=9"]
+
+[project.optional-dependencies]
+vision = ["torchvision>=0.17"]
+hf = ["transformers>=4.51", "accelerate>=1.0", "safetensors>=0.4"]
+paper = ["matplotlib>=3.8"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+cbmjev = "cbmjev.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["cbmjev*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests_cbmjev"]

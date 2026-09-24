@@ -1,0 +1,127 @@
+{
+  "pptx_sha256": "6045aeb726cdecbe47d1384a7a26934edd4ff195ac0da948cb05d8197f72dc93",
+  "combined_pdf_sha256": "eadb07a49792ac551c1a86a74d2cc874b0b83a079eb57e7e2859cb19ed2aebb4",
+  "figures": [
+    {
+      "id": "measurement_boundary_editable",
+      "slide": 1,
+      "native_shapes": 121,
+      "text_runs": 36,
+      "font_sizes_pt": [
+        8.5,
+        10.5,
+        13.0
+      ],
+      "fonts": [
+        "Arial"
+      ],
+      "pdf_fonts": [
+        "Arial-BoldMT",
+        "ArialMT"
+      ],
+      "all_fonts_embedded": true,
+      "raster_images": 0,
+      "pdf_sha256": "0af0e4d5fac523c8a6701b38094a89c41ffccb61baedfeaa14e2ce6089788a85",
+      "text": "(a) Measurement\n(b) Adaptive acquisition\n(c) Prediction\nRaw input x\nResponder\nR(x, A)\nTyped observations\nID\nvalue\nstatus\nAcquired concept evidence\nIDs \u00b7 values \u00b7 statuses\nGroup mask\nobserved\nLegal actions\nSingleton\nPair\nAll remaining\nSTOP\nunqueried groups\nAction scoring\nPost-acquisition risk\nor signed loss reduction\nAcquire or STOP\ndeclared budget\nTask head\nf\u03b8(H\u0304)\nPrediction\n\u0177\nSTOP\nAcquire A; update evidence\nTraining\nPublic labels + cross-fitted responses\nError / signed loss reduction\nFit controller\nDeclared cost controls acquisition; actual cost is logged externally.\n",
+      "width_pt": 507.6000061035156,
+      "height_pt": 252.0
+    },
+    {
+      "id": "cub_budget_frontier_seed60_editable",
+      "slide": 2,
+      "native_shapes": 51,
+      "text_runs": 16,
+      "font_sizes_pt": [
+        8.0,
+        9.5,
+        11.0
+      ],
+      "fonts": [
+        "Arial"
+      ],
+      "pdf_fonts": [
+        "Arial-BoldMT",
+        "ArialMT"
+      ],
+      "all_fonts_embedded": true,
+      "raster_images": 0,
+      "pdf_sha256": "cc737958d94bb62eab033829681c9514e07bd76f549de024f5ba33ac02d37a63",
+      "text": "Validation accuracy (%)\n0\n10\n20\n30\n40\n0\n4\n8\n16\n28\nMean acquired concept groups\nFixed prefix\nRandom prefix\nAll concepts\nNo concepts\n",
+      "width_pt": 236.25,
+      "height_pt": 190.8000030517578
+    },
+    {
+      "id": "cub_canonical_fixed_vs_dynamic_accuracy_editable",
+      "slide": 3,
+      "native_shapes": 121,
+      "text_runs": 16,
+      "font_sizes_pt": [
+        8.0,
+        9.5,
+        11.0
+      ],
+      "fonts": [
+        "Arial"
+      ],
+      "pdf_fonts": [
+        "Arial-BoldMT",
+        "ArialMT"
+      ],
+      "all_fonts_embedded": true,
+      "raster_images": 0,
+      "pdf_sha256": "2159bd6fec2b40200334ebc9be52acac5b98dbbc97a95b803c387d35f66d66cc",
+      "text": "Validation accuracy (%)\n0\n10\n20\n30\n40\n4\n8\n16\n28\nMean acquired concept groups\nValue\nFitted static\nValue singleton\nFitted static + stop\nSchema-order fixed\n",
+      "width_pt": 236.25,
+      "height_pt": 223.1999969482422
+    },
+    {
+      "id": "cub_equal_mean_cost_gap_editable",
+      "slide": 4,
+      "native_shapes": 71,
+      "text_runs": 14,
+      "font_sizes_pt": [
+        8.0,
+        9.5,
+        11.0
+      ],
+      "fonts": [
+        "Arial"
+      ],
+      "pdf_fonts": [
+        "Arial-BoldMT",
+        "ArialMT"
+      ],
+      "all_fonts_embedded": true,
+      "raster_images": 0,
+      "pdf_sha256": "65218550882bf58996baa9421a186d24573a58fd248debe21215069560f39203",
+      "text": "Accuracy difference (pp)\n-6\n-4\n-2\n0\n2\n2\n4\n8\n16\n28\nMaximum concept groups (K)\nValue\nValue, singleton\n",
+      "width_pt": 236.25,
+      "height_pt": 190.8000030517578
+    },
+    {
+      "id": "analytic_boundary_editable",
+      "slide": 5,
+      "native_shapes": 32,
+      "text_runs": 23,
+      "font_sizes_pt": [
+        8.5,
+        10.5,
+        13.0
+      ],
+      "fonts": [
+        "Arial"
+      ],
+      "pdf_fonts": [
+        "Arial-BoldMT",
+        "ArialMT"
+      ],
+      "all_fonts_embedded": true,
+      "raster_images": 0,
+      "pdf_sha256": "5686f5def7bc24aea03b37728d0de6edcfba98ee9b6b3b211b75f30603fee7de",
+      "text": "Analytical illustration\nRisk penalty v\n0.0\n0.1\n0.2\n0.3\n0.4\n0.5\n0.0\n0.1\n0.2\n0.3\n0.4\n0.5\nPair acquired\nNo pair\nNoise \u03c1\nv = (1 \u2212 2\u03c1)\u00b2 / 2\nIndependent symmetric flips\nBayes task head\nStatic pair = pair-aware adaptive\nEqual Bayes performance in this construction.\nv is a risk penalty, not milliseconds.\n",
+      "width_pt": 507.6000061035156,
+      "height_pt": 189.0
+    }
+  ],
+  "status": "PASS"
+}

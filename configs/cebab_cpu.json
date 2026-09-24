@@ -1,0 +1,24 @@
+{
+  "schema_version": "cbmjev-config-v1",
+  "seed": 17,
+  "device": "cpu",
+  "learning": {
+    "objective": "risk",
+    "hidden": 128,
+    "head_epochs": 30,
+    "policy_epochs": 30,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "masks_per_sample": 8,
+    "include_pairs": true,
+    "include_all": true,
+    "max_pair_actions": 8
+  },
+  "policy": {"cost_weight": 0.03, "max_groups": 4, "max_cost": null},
+  "cost": {"setup": 0.0, "call": 0.0, "per_group": 1.0, "units": "declared_query_units"},
+  "evaluation": {
+    "methods": ["stop", "all", "fixed", "random", "static", "risk", "lookahead"],
+    "bootstrap_resamples": 1000,
+    "lookahead_depth": 2
+  }
+}
