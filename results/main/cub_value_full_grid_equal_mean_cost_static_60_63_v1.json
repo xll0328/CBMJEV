@@ -1,0 +1,2121 @@
+{
+  "format": "cbmjev-cost-matched-static-full-grid-diagnostic-v1",
+  "evidence_status": "OFFLINE_VALIDATION_DIAGNOSTIC_NOT_PAPER_EVIDENCE",
+  "baseline_method": "static",
+  "baseline_construction": "independent_per_case_randomized_adjacent_fitted_static_budgets",
+  "metric": "sample_accuracy_only_macro_f1_not_linear",
+  "sources": [
+    {
+      "path": "runs/cub_eval_value_budget_grid_seed60_v1/metrics.json",
+      "sha256": "71681e280f6948a940251013b35b4f592fe60358893c18ce4517f176cbff5fc5"
+    },
+    {
+      "path": "runs/cub_eval_value_budget_grid_seed61_v1/metrics.json",
+      "sha256": "c3c06ebd5d17d6b4bac29ab844aa88c65738e8b2ff3f7df19c3dd731db39fbb2"
+    },
+    {
+      "path": "runs/cub_eval_value_budget_grid_seed62_v1/metrics.json",
+      "sha256": "28ddc9b10ffb904b30bc550eba37f9ee4e64e6eb34ad2234a4f3a54ece2ee547"
+    },
+    {
+      "path": "runs/cub_eval_value_budget_grid_seed63_v1/metrics.json",
+      "sha256": "48d7d892645359544ba0e5ca0e333b43a6027257cf9be349a945b5dcd982e7ea"
+    }
+  ],
+  "adaptive_policies": [
+    "value_K0",
+    "value_singleton_K0",
+    "value_K1",
+    "value_singleton_K1",
+    "value_K2",
+    "value_singleton_K2",
+    "value_K4",
+    "value_singleton_K4",
+    "value_K8",
+    "value_singleton_K8",
+    "value_K16",
+    "value_singleton_K16",
+    "value_K28",
+    "value_singleton_K28"
+  ],
+  "policies": {
+    "value_K0": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K0",
+          "adaptive_mean_declared_cost": 0.0,
+          "adaptive_mean_queried_groups": 0.0,
+          "adaptive_accuracy": 0.005050505050505083,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.05555555555555558
+          },
+          "high_static_probability": 0.0,
+          "static_mixture_expected_declared_cost": 0.0,
+          "static_mixture_expected_accuracy": 0.005050505050505083,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K0",
+          "adaptive_mean_declared_cost": 0.0,
+          "adaptive_mean_queried_groups": 0.0,
+          "adaptive_accuracy": 0.005050505050505083,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.0505050505050505
+          },
+          "high_static_probability": 0.0,
+          "static_mixture_expected_declared_cost": 0.0,
+          "static_mixture_expected_accuracy": 0.005050505050505083,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K0",
+          "adaptive_mean_declared_cost": 0.0,
+          "adaptive_mean_queried_groups": 0.0,
+          "adaptive_accuracy": 0.005050505050505083,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.05387205387205385
+          },
+          "high_static_probability": 0.0,
+          "static_mixture_expected_declared_cost": 0.0,
+          "static_mixture_expected_accuracy": 0.005050505050505083,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K0",
+          "adaptive_mean_declared_cost": 0.0,
+          "adaptive_mean_queried_groups": 0.0,
+          "adaptive_accuracy": 0.005050505050505083,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.0824915824915825
+          },
+          "high_static_probability": 0.0,
+          "static_mixture_expected_declared_cost": 0.0,
+          "static_mixture_expected_accuracy": 0.005050505050505083,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": 0.0,
+      "sample_std_accuracy_delta": 0.0,
+      "positive_seed_count": 0
+    },
+    "value_singleton_K0": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K0",
+          "adaptive_mean_declared_cost": 0.0,
+          "adaptive_mean_queried_groups": 0.0,
+          "adaptive_accuracy": 0.005050505050505083,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.05555555555555558
+          },
+          "high_static_probability": 0.0,
+          "static_mixture_expected_declared_cost": 0.0,
+          "static_mixture_expected_accuracy": 0.005050505050505083,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K0",
+          "adaptive_mean_declared_cost": 0.0,
+          "adaptive_mean_queried_groups": 0.0,
+          "adaptive_accuracy": 0.005050505050505083,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.0505050505050505
+          },
+          "high_static_probability": 0.0,
+          "static_mixture_expected_declared_cost": 0.0,
+          "static_mixture_expected_accuracy": 0.005050505050505083,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K0",
+          "adaptive_mean_declared_cost": 0.0,
+          "adaptive_mean_queried_groups": 0.0,
+          "adaptive_accuracy": 0.005050505050505083,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.05387205387205385
+          },
+          "high_static_probability": 0.0,
+          "static_mixture_expected_declared_cost": 0.0,
+          "static_mixture_expected_accuracy": 0.005050505050505083,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K0",
+          "adaptive_mean_declared_cost": 0.0,
+          "adaptive_mean_queried_groups": 0.0,
+          "adaptive_accuracy": 0.005050505050505083,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.0824915824915825
+          },
+          "high_static_probability": 0.0,
+          "static_mixture_expected_declared_cost": 0.0,
+          "static_mixture_expected_accuracy": 0.005050505050505083,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": 0.0,
+      "sample_std_accuracy_delta": 0.0,
+      "positive_seed_count": 0
+    },
+    "value_K1": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K1",
+          "adaptive_mean_declared_cost": 1.0,
+          "adaptive_mean_queried_groups": 1.0,
+          "adaptive_accuracy": 0.05555555555555558,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.05555555555555558
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 1.0,
+          "static_mixture_expected_accuracy": 0.05555555555555558,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K1",
+          "adaptive_mean_declared_cost": 1.0,
+          "adaptive_mean_queried_groups": 1.0,
+          "adaptive_accuracy": 0.0505050505050505,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.0505050505050505
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 1.0,
+          "static_mixture_expected_accuracy": 0.0505050505050505,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K1",
+          "adaptive_mean_declared_cost": 1.0,
+          "adaptive_mean_queried_groups": 1.0,
+          "adaptive_accuracy": 0.05387205387205385,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.05387205387205385
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 1.0,
+          "static_mixture_expected_accuracy": 0.05387205387205385,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K1",
+          "adaptive_mean_declared_cost": 1.0,
+          "adaptive_mean_queried_groups": 1.0,
+          "adaptive_accuracy": 0.0824915824915825,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.0824915824915825
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 1.0,
+          "static_mixture_expected_accuracy": 0.0824915824915825,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": 0.0,
+      "sample_std_accuracy_delta": 0.0,
+      "positive_seed_count": 0
+    },
+    "value_singleton_K1": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K1",
+          "adaptive_mean_declared_cost": 1.0,
+          "adaptive_mean_queried_groups": 1.0,
+          "adaptive_accuracy": 0.05555555555555558,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.05555555555555558
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 1.0,
+          "static_mixture_expected_accuracy": 0.05555555555555558,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K1",
+          "adaptive_mean_declared_cost": 1.0,
+          "adaptive_mean_queried_groups": 1.0,
+          "adaptive_accuracy": 0.0505050505050505,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.0505050505050505
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 1.0,
+          "static_mixture_expected_accuracy": 0.0505050505050505,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K1",
+          "adaptive_mean_declared_cost": 1.0,
+          "adaptive_mean_queried_groups": 1.0,
+          "adaptive_accuracy": 0.05387205387205385,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.05387205387205385
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 1.0,
+          "static_mixture_expected_accuracy": 0.05387205387205385,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K1",
+          "adaptive_mean_declared_cost": 1.0,
+          "adaptive_mean_queried_groups": 1.0,
+          "adaptive_accuracy": 0.0824915824915825,
+          "low_static": {
+            "policy_id": "static_K0",
+            "cost": 0.0,
+            "accuracy": 0.005050505050505083
+          },
+          "high_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.0824915824915825
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 1.0,
+          "static_mixture_expected_accuracy": 0.0824915824915825,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": 0.0,
+      "sample_std_accuracy_delta": 0.0,
+      "positive_seed_count": 0
+    },
+    "value_K2": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K2",
+          "adaptive_mean_declared_cost": 2.0,
+          "adaptive_mean_queried_groups": 2.0,
+          "adaptive_accuracy": 0.08922558922558921,
+          "low_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.05555555555555558
+          },
+          "high_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.08754208754208759
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 2.0,
+          "static_mixture_expected_accuracy": 0.08754208754208759,
+          "adaptive_minus_static_mixture_accuracy": 0.0016835016835016203,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K2",
+          "adaptive_mean_declared_cost": 2.0,
+          "adaptive_mean_queried_groups": 2.0,
+          "adaptive_accuracy": 0.06397306397306401,
+          "low_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.0505050505050505
+          },
+          "high_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.08922558922558921
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 2.0,
+          "static_mixture_expected_accuracy": 0.08922558922558921,
+          "adaptive_minus_static_mixture_accuracy": -0.025252525252525193,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K2",
+          "adaptive_mean_declared_cost": 2.0,
+          "adaptive_mean_queried_groups": 2.0,
+          "adaptive_accuracy": 0.11111111111111116,
+          "low_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.05387205387205385
+          },
+          "high_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.11111111111111116
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 2.0,
+          "static_mixture_expected_accuracy": 0.11111111111111116,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K2",
+          "adaptive_mean_declared_cost": 2.0,
+          "adaptive_mean_queried_groups": 2.0,
+          "adaptive_accuracy": 0.08922558922558921,
+          "low_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.0824915824915825
+          },
+          "high_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.09090909090909094
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 2.0,
+          "static_mixture_expected_accuracy": 0.09090909090909094,
+          "adaptive_minus_static_mixture_accuracy": -0.0016835016835017313,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": -0.006313131313131326,
+      "sample_std_accuracy_delta": 0.012700864531712942,
+      "positive_seed_count": 1
+    },
+    "value_singleton_K2": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K2",
+          "adaptive_mean_declared_cost": 2.0,
+          "adaptive_mean_queried_groups": 2.0,
+          "adaptive_accuracy": 0.09090909090909094,
+          "low_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.05555555555555558
+          },
+          "high_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.08754208754208759
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 2.0,
+          "static_mixture_expected_accuracy": 0.08754208754208759,
+          "adaptive_minus_static_mixture_accuracy": 0.0033670033670033517,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K2",
+          "adaptive_mean_declared_cost": 2.0,
+          "adaptive_mean_queried_groups": 2.0,
+          "adaptive_accuracy": 0.07407407407407407,
+          "low_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.0505050505050505
+          },
+          "high_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.08922558922558921
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 2.0,
+          "static_mixture_expected_accuracy": 0.08922558922558921,
+          "adaptive_minus_static_mixture_accuracy": -0.015151515151515138,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K2",
+          "adaptive_mean_declared_cost": 2.0,
+          "adaptive_mean_queried_groups": 2.0,
+          "adaptive_accuracy": 0.09259259259259256,
+          "low_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.05387205387205385
+          },
+          "high_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.11111111111111116
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 2.0,
+          "static_mixture_expected_accuracy": 0.11111111111111116,
+          "adaptive_minus_static_mixture_accuracy": -0.0185185185185186,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K2",
+          "adaptive_mean_declared_cost": 2.0,
+          "adaptive_mean_queried_groups": 2.0,
+          "adaptive_accuracy": 0.10942760942760943,
+          "low_static": {
+            "policy_id": "static_K1",
+            "cost": 1.0,
+            "accuracy": 0.0824915824915825
+          },
+          "high_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.09090909090909094
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 2.0,
+          "static_mixture_expected_accuracy": 0.09090909090909094,
+          "adaptive_minus_static_mixture_accuracy": 0.01851851851851849,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": -0.0029461279461279744,
+      "sample_std_accuracy_delta": 0.01724391196723845,
+      "positive_seed_count": 2
+    },
+    "value_K4": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K4",
+          "adaptive_mean_declared_cost": 4.0,
+          "adaptive_mean_queried_groups": 4.0,
+          "adaptive_accuracy": 0.14814814814814814,
+          "low_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.08754208754208759
+          },
+          "high_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18013468013468015
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 4.0,
+          "static_mixture_expected_accuracy": 0.18013468013468015,
+          "adaptive_minus_static_mixture_accuracy": -0.03198653198653201,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K4",
+          "adaptive_mean_declared_cost": 4.0,
+          "adaptive_mean_queried_groups": 4.0,
+          "adaptive_accuracy": 0.13131313131313127,
+          "low_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.08922558922558921
+          },
+          "high_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.17845117845117842
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 4.0,
+          "static_mixture_expected_accuracy": 0.17845117845117842,
+          "adaptive_minus_static_mixture_accuracy": -0.047138047138047146,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K4",
+          "adaptive_mean_declared_cost": 4.0,
+          "adaptive_mean_queried_groups": 4.0,
+          "adaptive_accuracy": 0.14814814814814814,
+          "low_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.11111111111111116
+          },
+          "high_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18686868686868685
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 4.0,
+          "static_mixture_expected_accuracy": 0.18686868686868685,
+          "adaptive_minus_static_mixture_accuracy": -0.03872053872053871,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K4",
+          "adaptive_mean_declared_cost": 4.0,
+          "adaptive_mean_queried_groups": 4.0,
+          "adaptive_accuracy": 0.1767676767676768,
+          "low_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.09090909090909094
+          },
+          "high_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18181818181818177
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 4.0,
+          "static_mixture_expected_accuracy": 0.18181818181818177,
+          "adaptive_minus_static_mixture_accuracy": -0.005050505050504972,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": -0.03072390572390571,
+      "sample_std_accuracy_delta": 0.01820336878036883,
+      "positive_seed_count": 0
+    },
+    "value_singleton_K4": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K4",
+          "adaptive_mean_declared_cost": 4.0,
+          "adaptive_mean_queried_groups": 4.0,
+          "adaptive_accuracy": 0.19360269360269355,
+          "low_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.08754208754208759
+          },
+          "high_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18013468013468015
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 4.0,
+          "static_mixture_expected_accuracy": 0.18013468013468015,
+          "adaptive_minus_static_mixture_accuracy": 0.013468013468013407,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K4",
+          "adaptive_mean_declared_cost": 4.0,
+          "adaptive_mean_queried_groups": 4.0,
+          "adaptive_accuracy": 0.12962962962962965,
+          "low_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.08922558922558921
+          },
+          "high_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.17845117845117842
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 4.0,
+          "static_mixture_expected_accuracy": 0.17845117845117842,
+          "adaptive_minus_static_mixture_accuracy": -0.048821548821548766,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K4",
+          "adaptive_mean_declared_cost": 3.9966329966329965,
+          "adaptive_mean_queried_groups": 3.9966329966329965,
+          "adaptive_accuracy": 0.14309764309764306,
+          "low_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.11111111111111116
+          },
+          "high_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18686868686868685
+          },
+          "high_static_probability": 0.9983164983164983,
+          "static_mixture_expected_declared_cost": 3.9966329966329965,
+          "static_mixture_expected_accuracy": 0.18674114886236096,
+          "adaptive_minus_static_mixture_accuracy": -0.0436435057647179,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K4",
+          "adaptive_mean_declared_cost": 4.0,
+          "adaptive_mean_queried_groups": 4.0,
+          "adaptive_accuracy": 0.1582491582491582,
+          "low_static": {
+            "policy_id": "static_K2",
+            "cost": 2.0,
+            "accuracy": 0.09090909090909094
+          },
+          "high_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18181818181818177
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 4.0,
+          "static_mixture_expected_accuracy": 0.18181818181818177,
+          "adaptive_minus_static_mixture_accuracy": -0.023569023569023573,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": -0.025641516171819208,
+      "sample_std_accuracy_delta": 0.02825618561886317,
+      "positive_seed_count": 1
+    },
+    "value_K8": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K8",
+          "adaptive_mean_declared_cost": 7.952861952861953,
+          "adaptive_mean_queried_groups": 7.952861952861953,
+          "adaptive_accuracy": 0.20370370370370372,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18013468013468015
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.2272727272727273
+          },
+          "high_static_probability": 0.9882154882154883,
+          "static_mixture_expected_declared_cost": 7.952861952861953,
+          "static_mixture_expected_accuracy": 0.2267172284007301,
+          "adaptive_minus_static_mixture_accuracy": -0.02301352469702639,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K8",
+          "adaptive_mean_declared_cost": 7.994949494949495,
+          "adaptive_mean_queried_groups": 7.994949494949495,
+          "adaptive_accuracy": 0.20707070707070707,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.17845117845117842
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.25757575757575757
+          },
+          "high_static_probability": 0.9987373737373737,
+          "static_mixture_expected_declared_cost": 7.994949494949495,
+          "static_mixture_expected_accuracy": 0.25747585280413565,
+          "adaptive_minus_static_mixture_accuracy": -0.05040514573342858,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K8",
+          "adaptive_mean_declared_cost": 6.277777777777778,
+          "adaptive_mean_queried_groups": 6.277777777777778,
+          "adaptive_accuracy": 0.20370370370370372,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18686868686868685
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.24579124579124578
+          },
+          "high_static_probability": 0.5694444444444444,
+          "static_mixture_expected_declared_cost": 6.277777777777778,
+          "static_mixture_expected_accuracy": 0.22042181069958847,
+          "adaptive_minus_static_mixture_accuracy": -0.016718106995884746,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K8",
+          "adaptive_mean_declared_cost": 6.814814814814815,
+          "adaptive_mean_queried_groups": 6.814814814814815,
+          "adaptive_accuracy": 0.24747474747474751,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18181818181818177
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.26936026936026936
+          },
+          "high_static_probability": 0.7037037037037037,
+          "static_mixture_expected_declared_cost": 6.814814814814815,
+          "static_mixture_expected_accuracy": 0.24342187305150265,
+          "adaptive_minus_static_mixture_accuracy": 0.004052874423244868,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": -0.021520975750773712,
+      "sample_std_accuracy_delta": 0.022461911012079238,
+      "positive_seed_count": 1
+    },
+    "value_singleton_K8": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K8",
+          "adaptive_mean_declared_cost": 7.914141414141414,
+          "adaptive_mean_queried_groups": 7.914141414141414,
+          "adaptive_accuracy": 0.2222222222222222,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18013468013468015
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.2272727272727273
+          },
+          "high_static_probability": 0.9785353535353536,
+          "static_mixture_expected_declared_cost": 7.914141414141414,
+          "static_mixture_expected_accuracy": 0.22626092575587528,
+          "adaptive_minus_static_mixture_accuracy": -0.004038703533653071,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K8",
+          "adaptive_mean_declared_cost": 7.910774410774411,
+          "adaptive_mean_queried_groups": 7.910774410774411,
+          "adaptive_accuracy": 0.23232323232323238,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.17845117845117842
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.25757575757575757
+          },
+          "high_static_probability": 0.9776936026936027,
+          "static_mixture_expected_declared_cost": 7.910774410774411,
+          "static_mixture_expected_accuracy": 0.2558107732771032,
+          "adaptive_minus_static_mixture_accuracy": -0.023487540953870845,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K8",
+          "adaptive_mean_declared_cost": 6.1767676767676765,
+          "adaptive_mean_queried_groups": 6.1767676767676765,
+          "adaptive_accuracy": 0.18855218855218858,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18686868686868685
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.24579124579124578
+          },
+          "high_static_probability": 0.5441919191919191,
+          "static_mixture_expected_declared_cost": 6.1767676767676765,
+          "static_mixture_expected_accuracy": 0.21893386729245312,
+          "adaptive_minus_static_mixture_accuracy": -0.03038167874026454,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K8",
+          "adaptive_mean_declared_cost": 7.841750841750842,
+          "adaptive_mean_queried_groups": 7.841750841750842,
+          "adaptive_accuracy": 0.2609427609427609,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18181818181818177
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.26936026936026936
+          },
+          "high_static_probability": 0.9604377104377104,
+          "static_mixture_expected_declared_cost": 7.841750841750842,
+          "static_mixture_expected_accuracy": 0.265896903944042,
+          "adaptive_minus_static_mixture_accuracy": -0.004954143001281053,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": -0.015715516557267377,
+      "sample_std_accuracy_delta": 0.0132621742762302,
+      "positive_seed_count": 0
+    },
+    "value_K16": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K16",
+          "adaptive_mean_declared_cost": 10.951178451178452,
+          "adaptive_mean_queried_groups": 10.951178451178452,
+          "adaptive_accuracy": 0.23905723905723908,
+          "low_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.2272727272727273
+          },
+          "high_static": {
+            "policy_id": "static_K16",
+            "cost": 16.0,
+            "accuracy": 0.29461279461279466
+          },
+          "high_static_probability": 0.36889730639730645,
+          "static_mixture_expected_declared_cost": 10.951178451178452,
+          "static_mixture_expected_accuracy": 0.2521142967270914,
+          "adaptive_minus_static_mixture_accuracy": -0.013057057669852323,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K16",
+          "adaptive_mean_declared_cost": 10.804713804713804,
+          "adaptive_mean_queried_groups": 10.804713804713804,
+          "adaptive_accuracy": 0.24410774410774416,
+          "low_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.25757575757575757
+          },
+          "high_static": {
+            "policy_id": "static_K16",
+            "cost": 16.0,
+            "accuracy": 0.2912457912457912
+          },
+          "high_static_probability": 0.35058922558922556,
+          "static_mixture_expected_declared_cost": 10.804713804713804,
+          "static_mixture_expected_accuracy": 0.26938010860569783,
+          "adaptive_minus_static_mixture_accuracy": -0.02527236449795367,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K16",
+          "adaptive_mean_declared_cost": 7.089225589225589,
+          "adaptive_mean_queried_groups": 7.089225589225589,
+          "adaptive_accuracy": 0.21885521885521886,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18686868686868685
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.24579124579124578
+          },
+          "high_static_probability": 0.7723063973063973,
+          "static_mixture_expected_declared_cost": 7.089225589225589,
+          "static_mixture_expected_accuracy": 0.23237495607024225,
+          "adaptive_minus_static_mixture_accuracy": -0.013519737215023392,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K16",
+          "adaptive_mean_declared_cost": 7.570707070707071,
+          "adaptive_mean_queried_groups": 7.570707070707071,
+          "adaptive_accuracy": 0.27441077441077444,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18181818181818177
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.26936026936026936
+          },
+          "high_static_probability": 0.8926767676767677,
+          "static_mixture_expected_declared_cost": 7.570707070707071,
+          "static_mixture_expected_accuracy": 0.2599649695609292,
+          "adaptive_minus_static_mixture_accuracy": 0.014445804849845256,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": -0.009350838633246032,
+      "sample_std_accuracy_delta": 0.01684132815283436,
+      "positive_seed_count": 1
+    },
+    "value_singleton_K16": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K16",
+          "adaptive_mean_declared_cost": 11.782828282828282,
+          "adaptive_mean_queried_groups": 11.782828282828282,
+          "adaptive_accuracy": 0.265993265993266,
+          "low_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.2272727272727273
+          },
+          "high_static": {
+            "policy_id": "static_K16",
+            "cost": 16.0,
+            "accuracy": 0.29461279461279466
+          },
+          "high_static_probability": 0.47285353535353525,
+          "static_mixture_expected_declared_cost": 11.782828282828282,
+          "static_mixture_expected_accuracy": 0.25911471618542326,
+          "adaptive_minus_static_mixture_accuracy": 0.006878549807842749,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K16",
+          "adaptive_mean_declared_cost": 10.235690235690235,
+          "adaptive_mean_queried_groups": 10.235690235690235,
+          "adaptive_accuracy": 0.24579124579124578,
+          "low_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.25757575757575757
+          },
+          "high_static": {
+            "policy_id": "static_K16",
+            "cost": 16.0,
+            "accuracy": 0.2912457912457912
+          },
+          "high_static_probability": 0.2794612794612794,
+          "static_mixture_expected_declared_cost": 10.235690235690235,
+          "static_mixture_expected_accuracy": 0.2669852282646895,
+          "adaptive_minus_static_mixture_accuracy": -0.02119398247344373,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K16",
+          "adaptive_mean_declared_cost": 6.91919191919192,
+          "adaptive_mean_queried_groups": 6.91919191919192,
+          "adaptive_accuracy": 0.20033670033670037,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18686868686868685
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.24579124579124578
+          },
+          "high_static_probability": 0.7297979797979799,
+          "static_mixture_expected_declared_cost": 6.91919191919192,
+          "static_mixture_expected_accuracy": 0.2298702513348978,
+          "adaptive_minus_static_mixture_accuracy": -0.029533550998197433,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K16",
+          "adaptive_mean_declared_cost": 9.363636363636363,
+          "adaptive_mean_queried_groups": 9.363636363636363,
+          "adaptive_accuracy": 0.28114478114478114,
+          "low_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.26936026936026936
+          },
+          "high_static": {
+            "policy_id": "static_K16",
+            "cost": 16.0,
+            "accuracy": 0.31986531986531985
+          },
+          "high_static_probability": 0.17045454545454541,
+          "static_mixture_expected_declared_cost": 9.363636363636363,
+          "static_mixture_expected_accuracy": 0.2779690847872666,
+          "adaptive_minus_static_mixture_accuracy": 0.0031756963575145236,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": -0.010168321826570972,
+      "sample_std_accuracy_delta": 0.01793726054322858,
+      "positive_seed_count": 2
+    },
+    "value_K28": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K28",
+          "adaptive_mean_declared_cost": 11.132996632996633,
+          "adaptive_mean_queried_groups": 11.132996632996633,
+          "adaptive_accuracy": 0.2407407407407407,
+          "low_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.2272727272727273
+          },
+          "high_static": {
+            "policy_id": "static_K16",
+            "cost": 16.0,
+            "accuracy": 0.29461279461279466
+          },
+          "high_static_probability": 0.39162457912457915,
+          "static_mixture_expected_declared_cost": 11.132996632996633,
+          "static_mixture_expected_accuracy": 0.253644752803002,
+          "adaptive_minus_static_mixture_accuracy": -0.012904012062261327,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K28",
+          "adaptive_mean_declared_cost": 28.0,
+          "adaptive_mean_queried_groups": 28.0,
+          "adaptive_accuracy": 0.303030303030303,
+          "low_static": {
+            "policy_id": "static_K16",
+            "cost": 16.0,
+            "accuracy": 0.2912457912457912
+          },
+          "high_static": {
+            "policy_id": "static_K28",
+            "cost": 28.0,
+            "accuracy": 0.303030303030303
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 28.0,
+          "static_mixture_expected_accuracy": 0.303030303030303,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K28",
+          "adaptive_mean_declared_cost": 28.0,
+          "adaptive_mean_queried_groups": 28.0,
+          "adaptive_accuracy": 0.28787878787878785,
+          "low_static": {
+            "policy_id": "static_K16",
+            "cost": 16.0,
+            "accuracy": 0.28114478114478114
+          },
+          "high_static": {
+            "policy_id": "static_K28",
+            "cost": 28.0,
+            "accuracy": 0.28787878787878785
+          },
+          "high_static_probability": 1.0,
+          "static_mixture_expected_declared_cost": 28.0,
+          "static_mixture_expected_accuracy": 0.28787878787878785,
+          "adaptive_minus_static_mixture_accuracy": 0.0,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_K28",
+          "adaptive_mean_declared_cost": 7.651515151515151,
+          "adaptive_mean_queried_groups": 7.651515151515151,
+          "adaptive_accuracy": 0.2727272727272727,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18181818181818177
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.26936026936026936
+          },
+          "high_static_probability": 0.9128787878787878,
+          "static_mixture_expected_declared_cost": 7.651515151515151,
+          "static_mixture_expected_accuracy": 0.2617334965819814,
+          "adaptive_minus_static_mixture_accuracy": 0.01099377614529129,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": -0.00047755897924250945,
+      "sample_std_accuracy_delta": 0.009771802817650744,
+      "positive_seed_count": 1
+    },
+    "value_singleton_K28": {
+      "rows": [
+        {
+          "seed": 60,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K28",
+          "adaptive_mean_declared_cost": 11.97138047138047,
+          "adaptive_mean_queried_groups": 11.97138047138047,
+          "adaptive_accuracy": 0.2710437710437711,
+          "low_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.2272727272727273
+          },
+          "high_static": {
+            "policy_id": "static_K16",
+            "cost": 16.0,
+            "accuracy": 0.29461279461279466
+          },
+          "high_static_probability": 0.4964225589225588,
+          "static_mixture_expected_declared_cost": 11.97138047138047,
+          "static_mixture_expected_accuracy": 0.26070185581970096,
+          "adaptive_minus_static_mixture_accuracy": 0.01034191522407013,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 61,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K28",
+          "adaptive_mean_declared_cost": 10.254208754208754,
+          "adaptive_mean_queried_groups": 10.254208754208754,
+          "adaptive_accuracy": 0.24747474747474751,
+          "low_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.25757575757575757
+          },
+          "high_static": {
+            "policy_id": "static_K16",
+            "cost": 16.0,
+            "accuracy": 0.2912457912457912
+          },
+          "high_static_probability": 0.2817760942760943,
+          "static_mixture_expected_declared_cost": 10.254208754208754,
+          "static_mixture_expected_accuracy": 0.26706316815744424,
+          "adaptive_minus_static_mixture_accuracy": -0.019588420682696728,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 62,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K28",
+          "adaptive_mean_declared_cost": 6.941077441077441,
+          "adaptive_mean_queried_groups": 6.941077441077441,
+          "adaptive_accuracy": 0.202020202020202,
+          "low_static": {
+            "policy_id": "static_K4",
+            "cost": 4.0,
+            "accuracy": 0.18686868686868685
+          },
+          "high_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.24579124579124578
+          },
+          "high_static_probability": 0.7352693602693603,
+          "static_mixture_expected_declared_cost": 6.941077441077441,
+          "static_mixture_expected_accuracy": 0.23019263907311044,
+          "adaptive_minus_static_mixture_accuracy": -0.02817243705290845,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        },
+        {
+          "seed": 63,
+          "split": "validation",
+          "num_samples": 594,
+          "adaptive_policy_id": "value_singleton_K28",
+          "adaptive_mean_declared_cost": 9.419191919191919,
+          "adaptive_mean_queried_groups": 9.419191919191919,
+          "adaptive_accuracy": 0.28114478114478114,
+          "low_static": {
+            "policy_id": "static_K8",
+            "cost": 8.0,
+            "accuracy": 0.26936026936026936
+          },
+          "high_static": {
+            "policy_id": "static_K16",
+            "cost": 16.0,
+            "accuracy": 0.31986531986531985
+          },
+          "high_static_probability": 0.17739898989898983,
+          "static_mixture_expected_declared_cost": 9.419191919191919,
+          "static_mixture_expected_accuracy": 0.2783198143046628,
+          "adaptive_minus_static_mixture_accuracy": 0.002824966840118348,
+          "fixed_static_group_metrics_identical_all_shared_budgets": true,
+          "shared_fixed_static_budgets": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            16,
+            28
+          ],
+          "static_order_noncanonical": true,
+          "paired_group_bootstrap": null
+        }
+      ],
+      "num_seeds": 4,
+      "mean_accuracy_delta": -0.008648493917854175,
+      "sample_std_accuracy_delta": 0.018194708885674878,
+      "positive_seed_count": 2
+    }
+  },
+  "limitations": [
+    "Point estimates only; no full-grid bootstrap or multiple-look correction",
+    "Mixture weights use inspected validation costs and are not frozen deployable operating points",
+    "Expected declared cost is matched, not each case's realized cost or deployment latency",
+    "Canonical fixed and strong adaptive baselines are not represented by this fitted-static comparator"
+  ]
+}

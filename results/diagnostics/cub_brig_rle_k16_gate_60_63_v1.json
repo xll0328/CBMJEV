@@ -1,0 +1,130 @@
+{
+  "format": "cbmjev-cub-brig-rle-k16-validation-gate-v1",
+  "evidence_status": "DEVELOPMENT_VALIDATION_NOT_TEST_OR_LATENCY_EVIDENCE",
+  "split": "validation",
+  "budget_groups": 16,
+  "seeds": [
+    60,
+    61,
+    62,
+    63
+  ],
+  "samples_per_seed": 594,
+  "same_validation_images_reused_across_seeds": true,
+  "per_seed": [
+    {
+      "seed": 60,
+      "samples": 594,
+      "brig_accuracy": 0.28787878787878785,
+      "static_accuracy": 0.29461279461279466,
+      "accuracy_delta": -0.006734006734006814,
+      "brig_macro_f1": 0.25784015984015984,
+      "static_macro_f1": 0.267353576978577,
+      "macro_f1_delta": -0.009513417138417135,
+      "paired_correctness": {
+        "brig_only": 37,
+        "static_only": 41,
+        "both": 134,
+        "neither": 382
+      },
+      "paired_image_accuracy_delta_95_interval": [
+        -0.03535353535353535,
+        0.021885521885521887
+      ],
+      "brig_metrics_sha256": "afe81df84881922c551099215a794552e0f006c5d478916448d4b82c8fef1b2f",
+      "static_metrics_sha256": "71681e280f6948a940251013b35b4f592fe60358893c18ce4517f176cbff5fc5",
+      "brig_eval_receipt_sha256": "31ec8bcea853fbe92f0c9eb1bc7e8dedced758ef068ee46231901d861097e4dc",
+      "static_eval_receipt_sha256": "1b53320cad38570d27f0921f97cdf4e7e109ec6fe217726b54c7cb5198de7fbe",
+      "brig_traces_sha256": "239da395cd475efa8cfaf1e51b46ab2b8193fd6009177fd3a4e0ff411e47e44a",
+      "static_traces_sha256": "738c92848388c53ebedd70cf397dbc894b3ec0cf9c9e2710654ee8d9fc7a469b"
+    },
+    {
+      "seed": 61,
+      "samples": 594,
+      "brig_accuracy": 0.2828282828282829,
+      "static_accuracy": 0.2912457912457912,
+      "accuracy_delta": -0.008417508417508324,
+      "brig_macro_f1": 0.24676139383492324,
+      "static_macro_f1": 0.253787074037074,
+      "macro_f1_delta": -0.007025680202150775,
+      "paired_correctness": {
+        "brig_only": 46,
+        "static_only": 51,
+        "both": 122,
+        "neither": 375
+      },
+      "paired_image_accuracy_delta_95_interval": [
+        -0.03872053872053872,
+        0.025252525252525252
+      ],
+      "brig_metrics_sha256": "6fa03d00a9c170baee3772325a36c26c23bc191fecb2fa67abe2d3ced3a89701",
+      "static_metrics_sha256": "c3c06ebd5d17d6b4bac29ab844aa88c65738e8b2ff3f7df19c3dd731db39fbb2",
+      "brig_eval_receipt_sha256": "0a0e0493a5c13a5e37d3addfa67564f229889459f5354b91086128f95eb7b0eb",
+      "static_eval_receipt_sha256": "18fec249bb5f4efd443fe2e05471c4daa3dadb3da689c581b7c9fcbb473c60cb",
+      "brig_traces_sha256": "288e3f4be2af111d3bc9ebfae5654a7a41ffb2bce37d0f2255469a4497989cd9",
+      "static_traces_sha256": "bbd928ba6aacabbe1b3f5567ea28cf1a8e44b7207a5558d638210d28c2b61015"
+    },
+    {
+      "seed": 62,
+      "samples": 594,
+      "brig_accuracy": 0.2592592592592593,
+      "static_accuracy": 0.28114478114478114,
+      "accuracy_delta": -0.02188552188552184,
+      "brig_macro_f1": 0.21895244461420932,
+      "static_macro_f1": 0.2329335941835942,
+      "macro_f1_delta": -0.01398114956938487,
+      "paired_correctness": {
+        "brig_only": 34,
+        "static_only": 47,
+        "both": 120,
+        "neither": 393
+      },
+      "paired_image_accuracy_delta_95_interval": [
+        -0.05218855218855219,
+        0.008417508417508417
+      ],
+      "brig_metrics_sha256": "db2ce2efc56c3aa42d06abe7259e47d08709b20f0059a8a1b9368fcee2fe4e1a",
+      "static_metrics_sha256": "28ddc9b10ffb904b30bc550eba37f9ee4e64e6eb34ad2234a4f3a54ece2ee547",
+      "brig_eval_receipt_sha256": "de24533530591f0fdd349033d2ab287ed37cc96f98d6cae62467a79175011a59",
+      "static_eval_receipt_sha256": "f628288e28907a22ba55c1920cbff79289368d19e7b6d3a7f56d644f34ae83a5",
+      "brig_traces_sha256": "3b013b62b104e7de212a2586574bb7aadf334177ab488e6477e8700aa4985f4e",
+      "static_traces_sha256": "f7f80b64e1ad189b2374300f1310d4f469d1bd6939ada07557defd040a22d9f6"
+    },
+    {
+      "seed": 63,
+      "samples": 594,
+      "brig_accuracy": 0.2912457912457912,
+      "static_accuracy": 0.31986531986531985,
+      "accuracy_delta": -0.028619528619528656,
+      "brig_macro_f1": 0.24570421245421245,
+      "static_macro_f1": 0.2726795981795982,
+      "macro_f1_delta": -0.026975385725385742,
+      "paired_correctness": {
+        "brig_only": 40,
+        "static_only": 57,
+        "both": 133,
+        "neither": 364
+      },
+      "paired_image_accuracy_delta_95_interval": [
+        -0.06228956228956229,
+        0.003367003367003367
+      ],
+      "brig_metrics_sha256": "763a9cac3c314e4abfe71f1e08e6ac661330dcac31c5b43a36f7780c1dc9b122",
+      "static_metrics_sha256": "48d7d892645359544ba0e5ca0e333b43a6027257cf9be349a945b5dcd982e7ea",
+      "brig_eval_receipt_sha256": "899bfd03dcef450a135876f152bf393875400101d39afa433f0bb861148a5c80",
+      "static_eval_receipt_sha256": "a886f6eef6ddf50e1000f3a9ba5c0bfba7d7003e6d37e27225d52ddb1fc1275d",
+      "brig_traces_sha256": "396b306b8ae2153a5cf33a2fc776b07c377ff23856d162280a87fa12fa97c7b9",
+      "static_traces_sha256": "44003eb025742d7d6bcd8d1110c805ede644a07872b34344edb7599d9fa7f1af"
+    }
+  ],
+  "mean_accuracy_delta": -0.01641414141414141,
+  "mean_macro_f1_delta": -0.01437390815883463,
+  "positive_accuracy_seeds": 0,
+  "positive_macro_f1_seeds": 0,
+  "sample_sd_accuracy_delta": 0.010591799151614413,
+  "sample_sd_macro_f1_delta": 0.008880171230196462,
+  "scope_frozen_gate": "after exploratory seed 60 but before seeds 61--63: four specified seeds; accuracy mean >= +1.0 percentage point, >=3/4 positive seeds, and nonnegative mean macro-F1 delta",
+  "gate_pass": false,
+  "interpretation_limit": "Paired image intervals condition on fitted policies and repeatedly inspected development validation images; seeds are not independent datasets, and this is not JEV-specific evidence.",
+  "report_hash": "fa12c40dc0dae256e2d28206364b9dc259708951483eb876b59228b0baeecb34"
+}

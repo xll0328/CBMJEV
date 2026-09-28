@@ -11,12 +11,13 @@ The training-target strip is explicitly the CUB cross-fitting route. The
 observed mask and candidate masks illustrate legal action sets; they are not
 empirical trajectories or additional experimental results.
 
-The revision was informed by a visual review of top-conference figure examples.
-Third-party gallery images and reference assets are not included in this
-repository; none is embedded in this deck.
+The revision follows direct inspection of ten figures from the requested
+top-conference gallery. The reference images, attributions, layout analysis and
+verbal description are in `figures/design_references/topconf_20260924/` at the
+project root. None of those reference images is embedded in this deck.
 
-The manuscript draft used `v4/measurement_boundary_editable.pdf` for Figure 1,
-with a method-oriented caption. Other figures still use their v2 PDFs. Arial is
+The paper uses `v4/measurement_boundary_editable.pdf` for Figure 1, with a new
+method-oriented caption. Other figures still use their v2 PDFs. Arial is
 explicitly set and embedded. Each slide uses exactly three font sizes. PDF
 exports contain no raster images; previews are for inspection only.
 
@@ -32,10 +33,36 @@ runtime configured via `RUNTIME_NODE_MODULES`, `PRESENTATION_SKILL_DIR` and
 `RUNTIME_PYTHON`. Run the Node builder, wait for successful completion, and
 export with the bundled LibreOffice. Set `FONTCONFIG_FILE` to that version's
 generated `.build/v5/fonts.conf` before export. Then run the PDF verification
-script against the generated output directory.
+script against `paper/cvpr2027/figures/editable/v5`.
 
 Source paths and plotted data are retained in `figure_manifest.json`.
 `figure_validation.json` verifies native slide objects, explicit font sizes,
 embedded Arial, unclipped PDF text and vector-only content. The finalized PPTX
 has been opened/exported in bundled LibreOffice; Microsoft PowerPoint desktop
 is not installed on this Mac.
+
+## `unflatten-ppt` audit (2026-09-28)
+
+The installed [`unflatten-ppt`](https://github.com/Feng-Y-28/unflatten-ppt)
+workflow was applied as an editability and visual-comparison checklist to the
+existing v4 deck. This was an audit of an already native, editable figure, not
+an automated conversion from the old bitmap. The source PNG and the v4 export
+are intentionally different aspect ratios because v4 was redesigned as a
+wide, method-first paper figure. Pixel-difference scores therefore are **not**
+fidelity or quality metrics.
+
+- PowerPoint archive integrity: `unzip -t` passed. Slide 1 XML has 121 native
+  `<p:sp>` shapes and zero `<p:pic>` image objects; the whole deck has no
+  `ppt/media` files. Text and essential regions remain editable.
+- The current exported screenshot is
+  `previews/measurement_boundary_editable.png`; the old-flat versus editable
+  side-by-side is `measurement_boundary_flat_vs_editable.png`. The old PNG is a
+  historical layout reference, **not** embedded in the PPTX.
+- Manual review of the compiled paper page checked the measurement → adaptive
+  acquisition → prediction direction, the evidence-update return path, STOP,
+  and exact labels against the caption and method. The PDF inspection script
+  reports no clipping, three font sizes, and embedded Arial.
+- Remaining visual trade-off: the training strip's secondary text is small at
+  review-paper print size. It is readable in the exported figure but should be
+  rechecked in Microsoft PowerPoint before public release; only LibreOffice
+  export was available for this verification.
