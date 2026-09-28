@@ -16,8 +16,7 @@ top-conference gallery. The reference images, attributions, layout analysis and
 verbal description are in `figures/design_references/topconf_20260924/` at the
 project root. None of those reference images is embedded in this deck.
 
-The paper uses `v4/measurement_boundary_editable.pdf` for Figure 1, with a new
-method-oriented caption. Other figures still use their v2 PDFs. Arial is
+The paper uses the v4 PDF exports for Figure 1 and the remaining plots. Arial is
 explicitly set and embedded. Each slide uses exactly three font sizes. PDF
 exports contain no raster images; previews are for inspection only.
 
