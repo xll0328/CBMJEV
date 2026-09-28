@@ -5,7 +5,6 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { drawFramework } from './framework_layout_v3.mjs';
 
 const project = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const runtime = process.env.RUNTIME_NODE_MODULES;
@@ -17,6 +16,8 @@ const { Presentation, PresentationFile } = await import(pathToFileURL(req.resolv
 const { finalizePresentation } = await import(pathToFileURL(path.join(skill, 'container_tools/artifact_tool_utils.mjs')).href);
 const version = process.argv[2] ?? 'v1';
 if (!/^v\d+$/.test(version)) throw new Error('Use a revision such as v1.');
+const { drawFramework } = await import(Number(version.slice(1)) >= 5
+  ? './framework_layout_v5.mjs' : './framework_layout_v3.mjs');
 const out = path.join(project, 'paper/cvpr2027/figures/editable', version);
 const build = path.join(project, 'paper/cvpr2027/figures/editable/.build', version);
 await fs.mkdir(out, { recursive: true });

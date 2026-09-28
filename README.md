@@ -41,7 +41,7 @@ The project treats **what was measured** and **what computation was actually per
 | [`docs/`](docs/) | Data adapters, experiment protocol, scope freeze, and release gates |
 | [`research/`](research/) · [`theory/`](theory/) | Literature notes, research decisions, and bounded theoretical analyses |
 | [`results/`](results/) | Selected validation-only aggregates and diagnostic snapshots; no raw datasets or checkpoints |
-| [`figures/editable/v4/`](figures/editable/v4/) | Editable PowerPoint figure source and PDF previews |
+| [`figures/editable/v5/`](figures/editable/v5/) | Editable PowerPoint figures with larger framework labels and PDF previews |
 
 ## Current evidence, without a positive-result spin
 
