@@ -1,6 +1,6 @@
 # CBMJev 开发者地图
 
-更新：2026-09-22。本文描述当前统一 `cbmjev/` 的实际接口与产物流；旧 `scaffold/` 和 `pilot/` 保留为历史，不是新包的依赖。研究设计见 [PROJECT_BLUEPRINT](PROJECT_BLUEPRINT.md)，服务器命令见 [SERVER_RUNBOOK](SERVER_RUNBOOK.md)，本轮通过/跳过项以 [VERIFICATION_20260922](VERIFICATION_20260922.md) 为准。代码存在、fixture 测试通过、真实数据验收是三种不同状态。
+更新：2026-09-22。本文描述该日期统一 `cbmjev/` 的接口与产物流；旧 `scaffold/` 和 `pilot/` 是历史实现，不是新包的依赖。研究设计见 [PROJECT_BLUEPRINT](PROJECT_BLUEPRINT.md)。当时的服务器运行手册与验证日志为未分发的内部历史记录；当前公开入口和验证命令见[仓库说明](../README.md)。代码存在、fixture 测试通过、真实数据验收是三种不同状态。
 
 ## 1. 从哪里读代码
 

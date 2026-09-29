@@ -1,4 +1,4 @@
-> 2026-09-22 v4 工程更新：本方法合同继续有效；文中 scaffold/pilot 描述是历史实现边界。最新统一包的组查询、批动作、r/V 和 live 路径见 [代码地图](../docs/CODE_MAP.md)、[学习模块](../docs/LEARNING.md) 与 [验收记录](../docs/VERIFICATION_20260922.md)。当前训练执行互斥角色划分，完整 nested cross-fit 仍是计划，不能称已执行。
+> 2026-09-22 v4 历史工程说明：本页保留当时的方法合同与实现边界，不代表当前完成状态。组查询、批动作、r/V 和 live 路径见 [代码地图](../docs/CODE_MAP.md)与[学习模块](../docs/LEARNING.md)。当时的验收日志未分发；当前公开成果与使用入口见[仓库说明](../README.md)。该日期训练执行互斥角色划分，完整 nested cross-fit 仍是计划，不能称已执行。
 
 # 方法与训练规格：可实现的参考版本
 
@@ -86,7 +86,7 @@ STOP用当前H计算。同一个样本可以让多个动作都成功或都失败
 
 最低成本pilot：训练数据内R-fit/head-fit/policy-fit分离；若R完全冻结无本数据监督，可将R-fit预算并入head/policy但要记录。validation选结构/λ，calibration只做冻结策略评估，test留作最终比较。
 
-完整监督R路线按 [数据协议](../execution/data/DATA_PROTOCOL.md) 做严格nested cross-fitting。关键不是文件名带OOF，而是给样本i生成policy target的所有有监督祖先都没看过i或同group。
+完整监督R路线要求严格nested cross-fitting。原内部数据协议未分发；公开约束见[数据适配器](../docs/DATA_ADAPTERS.md)与[评估协议](../docs/EVALUATION.md)。关键不是文件名带OOF，而是给样本i生成policy target的所有有监督祖先都没看过i或同group。
 
 部署重新全量拟合R/f会改变响应和风险目标分布。两种合法处理：
 

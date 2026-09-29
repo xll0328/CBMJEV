@@ -42,9 +42,11 @@ canonical fixed-order evaluation is still pending. Macro-F1 is not interpolated
 because it is nonlinear in the confusion matrix.
 
 Selected unrestricted-value K8, K16, and K28 image-group paired-bootstrap
-files are [`K8`](cub_value_k8_equal_mean_cost_static_bootstrap_60_63_v1.json),
-[`K16`](cub_value_k16_equal_mean_cost_static_bootstrap_60_63_v1.json), and
-[`K28`](cub_value_k28_equal_mean_cost_static_bootstrap_60_63_v1.json).
+files were retained in the internal experiment workspace and are not included
+in this curated release. The intervals below are a historical diagnostic
+summary, not independently reconstructible from the released aggregate alone.
+The public [full-grid aggregate](cub_value_full_grid_equal_mean_cost_static_60_63_v1.json)
+retains the per-seed equal-mean-cost comparisons.
 At K8, the four conditional 95% percentile intervals in seed order are
 [-5.50, 0.73], [-8.39, -1.67], [-4.47, 1.13], and [-2.40, 3.02] pp.
 The seed-61 interval excludes zero, but it is **not a confirmatory discovery**

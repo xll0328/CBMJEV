@@ -1,5 +1,7 @@
 # 理论交付核验
 
+> 本页是注明日期的历史核验记录，不是当前论文整稿的证明审查。当前发布入口见[仓库说明](../README.md)；内部 reviewer 对话日志未分发。
+
 核验日期：2026-09-21，T8 增补核验于 2026-09-23。范围仅 theory/；没有运行 GPU、真实数据或付费 API。
 
 ## 已运行
@@ -25,6 +27,6 @@ review-trace 三个 JSON 元数据文件已用 `jq empty` 解析检查。LaTeX �
 - `pdflatex` 仍不在当前 PATH；独立片段 `THEORY_APPENDIX.tex` 由 `theory_preview.tex` 引入并经 Tectonic 编译，不等同于论文整稿或正式模板验收。
 - 没有形式证明助理认证（Lean/Coq 等）。
 - 没有为 learned risk estimator 证明 uniform ε，也没有估计真实成本或医学可靠性。
-- 初步 reviewer 只看了摘要主张；完整 prompt/response 与不同意之处保存在 [review-trace/REVIEW_RESOLUTION.md](review-trace/REVIEW_RESOLUTION.md)。最终全文由 root 统一独立审查。
+- 初步 reviewer 只看了摘要主张；完整 prompt/response 与不同意之处保存在未分发的内部 `review-trace/REVIEW_RESOLUTION.md`。该轮最终全文审查另行记录，不能由此历史摘要推断当前论文已通过完整审查。
 
 所有未满足的经验前提和开放义务都在 [PROOF_OBLIGATION_LEDGER.md](PROOF_OBLIGATION_LEDGER.md) 单列。不能把“证明在假设内成立”改写成“实验已验证假设”。

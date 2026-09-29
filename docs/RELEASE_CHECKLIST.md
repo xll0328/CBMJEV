@@ -1,6 +1,6 @@
 # CBMJev 首发与论文就绪检查表
 
-日期：2026-09-22。**本文件是验收清单，不是完成声明。** 未附证据的框保持未勾选。[本轮验证报告](VERIFICATION_20260922.md)统一记录实际检查；不能从旧pilot测试结果推断新统一包或真实数据已通过。
+日期：2026-09-22。**本文件是历史验收清单，不是当前完成声明。** 未附证据的框保持未勾选。该轮验证日志是未分发的内部记录；当前公开检查入口与已发布范围见[仓库说明](../README.md)。不能从旧pilot测试结果推断新统一包或真实数据已通过。
 
 状态词：`DESIGN_AVAILABLE` / `IMPLEMENTED_NOT_VERIFIED` / `FIXTURE_VERIFIED_REAL_PENDING` / `REAL_VERIFIED` / `NOT_RUN` / `BLOCKED`。禁止只写done而不说明验证范围。
 
@@ -75,7 +75,7 @@
 - [ ] calibration只认证冻结候选；temperature/model selection留validation/inner-dev；M与hash固定。
 - [ ] no-bypass结果不被写成语义正确性/因果/医疗安全保证。
 - [ ] 正例、负例和错误早停均按固定规则选，展示总体失败频率。
-- [ ] 论文数字全部追溯run ID；未跑项不填数字；结果不支持时使用 [条件结论分支](../paper/RESULT_BRANCHES.md)。
+- [ ] 论文数字全部追溯run ID；未跑项不填数字；结果不支持时收窄结论（原条件结论分支为未分发的内部历史草稿）。
 - [ ] 成本报告同时含研究训练成本、部署成本与额外审计成本，三者不混写。
 - [ ] claim audit、citation audit、图表可读性/数据来源检查后，才冻结摘要和贡献。
 

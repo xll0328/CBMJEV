@@ -36,11 +36,11 @@ source指向含 `images.txt,image_class_labels.txt,train_test_split.txt,classes.
 
 正常annotation严格解析image,attribute,is_present,certainty,time五列。certainty整数含义仅从文件读取：not visible→NOT_VISIBLE、guessing→UNCERTAIN_ANNOTATION，均value=null；probably/definitely→OBSERVED原is_present。缺少annotation行显式missing。certainty其它词报错，原annotation三元组留在audit_metadata；不把gold缺失性作为运行时状态。默认不裁剪bbox，不使用112个class-majority属性。图片路径拒绝绝对路径、URL、`..`和逃出source的symlink。
 
-唯一原生格式例外：已核验官方annotation文件SHA256 `5ebb9782d589f41a9c046bc7c5b1365e01839308e7cf88cbe83c0fb6d5362d98` 中606行有六列。仅该完整hash、images 2275/9364×attributes 10..312的完整606-key集合及已知suffix形式可通过；保留前四语义字段，duration=null，原行/后缀/行号写 `annotation_anomalies.jsonl`，状态 `AMBIGUOUS_TRAILING_FIELDS`，不推断后缀含义。其它非五列格式仍拒绝。该sidecar只在出现异常时生成，返回dict额外提供 `annotation_anomalies` 路径；无异常数据输出不变。来源依据和完整处置记录见 [数据访问记录](DATA_ACCESS_STATUS_20260922.md)。
+唯一原生格式例外：已核验官方annotation文件SHA256 `5ebb9782d589f41a9c046bc7c5b1365e01839308e7cf88cbe83c0fb6d5362d98` 中606行有六列。仅该完整hash、images 2275/9364×attributes 10..312的完整606-key集合及已知suffix形式可通过；保留前四语义字段，duration=null，原行/后缀/行号写 `annotation_anomalies.jsonl`，状态 `AMBIGUOUS_TRAILING_FIELDS`，不推断后缀含义。其它非五列格式仍拒绝。该sidecar只在出现异常时生成，返回dict额外提供 `annotation_anomalies` 路径；无异常数据输出不变。原始数据访问记录为未分发的内部历史日志；公开处置逻辑见[数据适配实现](../cbmjev/data.py)与[官方包准备工具](../tools/prepare_cub_official.py)。
 
 ## Derm7pt
 
-2026-09-22 实测官方 ZIP 需要 HTTP Basic 认证；用户须亲自完成机构信息登记与许可确认，图像和 metadata 都在受控包中，不存在已核实的匿名完整 metadata 入口。实际操作与访问边界见 [数据访问记录](DATA_ACCESS_STATUS_20260922.md)。
+2026-09-22 实测官方 ZIP 需要 HTTP Basic 认证；用户须亲自完成机构信息登记与许可确认，图像和 metadata 都在受控包中，不存在已核实的匿名完整 metadata 入口。该日期的内部访问日志不在公开包中；请遵循[数据集作者仓库](https://github.com/jeremykawahara/derm7pt)提供的访问与许可说明。
 
 source应有 `images/`、`meta/{meta.csv,train_indexes.csv,valid_indexes.csv,test_indexes.csv}`。索引CSV必须有作者原header `indexes`，值是原meta文件**0-based行位置**（不是case_num）；先join后才排序导出。跨split索引重复/越界/未覆盖全体行均报错。[作者最小示例](https://github.com/jeremykawahara/derm7pt/blob/master/minimal_example.py)、[作者类别映射与iloc实现](https://github.com/jeremykawahara/derm7pt/blob/master/derm7pt/dataset.py)。
 
@@ -58,7 +58,7 @@ train内purpose=pilot-role，按stratum前floor(.6n) responder_fit，接着floor
 
 validation可开发/温度拟合；calibration只作完整模型和有限候选族冻结后的终局认证，不能拟合任何R/f/V/r、改prompt或看到认证标签后新增阈值仍沿用原M；test只评估。数据适配器是离线可信预处理，会读取gold进行标准分层与缺失统计，不把gold放进运行时request。
 
-audit分开source原始数量、canonical数量、目标有效数量、目标status、逐概念status、group数量、六角色数量及空strata；保存词表/split/来源文件哈希。早期验收仅使用tiny fixtures；2026-09-22开始在xtech服务器接入真实数据，最新完成项见 [部署记录](SERVER_DEPLOYMENT_20260922.md)，真实数据不留Mac。仍须核对来源版本、许可、预期规模、pHash/患者独立性、模型训练祖先与真实输入白名单，完成 `execution/data/DATA_PROTOCOL.md` 的验收清单。
+audit分开source原始数量、canonical数量、目标有效数量、目标status、逐概念status、group数量、六角色数量及空strata；保存词表/split/来源文件哈希。早期验收仅使用tiny fixtures；2026-09-22开始在研究服务器接入真实数据。内部部署日志与原始数据不在公开包中，当前已发布的证据范围见[仓库说明](../README.md)。仍须核对来源版本、许可、预期规模、pHash/患者独立性、模型训练祖先与真实输入白名单，公开验收项目见[发布检查表](RELEASE_CHECKLIST.md)。
 
 ```bash
 python -m unittest tests_cbmjev.test_data -v

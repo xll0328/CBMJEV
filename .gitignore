@@ -6,6 +6,10 @@ build/
 dist/
 .venv/
 .env
+.env.*
+!.env.example
+*.pem
+*.key
 data/
 artifacts/
 runs/
@@ -15,3 +19,7 @@ wandb/
 *.pth
 *.safetensors
 .DS_Store
+# The authors keep the complete manuscript outside the public code release.
+/paper/
+/CBMJEV_arXiv_*.pdf
+/CBMJEV_arXiv_*.zip

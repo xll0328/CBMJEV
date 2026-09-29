@@ -2,77 +2,97 @@
 
 # CBMJEV
 
-### Adaptive concept acquisition with fallible measurements
+### When Is It Worth Asking?<br>Adaptive Concept Bottlenecks with Fallible Measurements
 
-**A research project on when a model should ask for another concept—and when it should stop.**
+**Wenshuo Chen · Lujundong Li · Songning Lai**<br>
+HKUST(GZ)
 
-<img alt="Status: research prototype" src="https://img.shields.io/badge/status-research%20prototype-6f42c1?style=for-the-badge">
-<img alt="Evidence: validation only" src="https://img.shields.io/badge/evidence-validation%20only-d29922?style=for-the-badge">
-<img alt="License: not specified" src="https://img.shields.io/badge/license-not%20specified-lightgrey?style=for-the-badge">
+[Overview](#overview) · [Quick start](docs/QUICKSTART.md) · [Results](results/README.md) · [Editable figures](figures/editable/v5/) · [Citation](#citation)
+
+<img alt="Python 3.9 or newer" src="https://img.shields.io/badge/Python-3.9%2B-0072B2?style=flat-square">
+<img alt="PyTorch 2.2 or newer" src="https://img.shields.io/badge/PyTorch-2.2%2B-7B5BCB?style=flat-square">
+<img alt="Research code" src="https://img.shields.io/badge/release-research%20code-009E73?style=flat-square">
+<a href="LICENSE"><img alt="Code license: MIT" src="https://img.shields.io/badge/code-MIT-555555?style=flat-square"></a>
 
 </div>
 
----
+<p align="center">
+  <a href="figures/editable/v5/measurement_boundary_editable.pdf">
+    <img src="figures/editable/v5/previews/measurement_boundary_editable.png" width="100%" alt="CBMJEV framework: a responder measures concepts from the input; the acquisition policy uses only acquired concept evidence to choose another legal action or STOP; a task head predicts from that same evidence.">
+  </a>
+</p>
 
-CBMJEV explores a simple question: **if concept measurements can be wrong, can choosing them one at a time improve decisions over predicting every concept at once?** A controller observes the concepts acquired so far, selects the next candidate, receives its measurement, updates its state, and may stop within a query budget.
+## Overview
 
-> **Research status (28 September 2026).** This is a development-stage research prototype, not a positive method result or a completed benchmark release. The four-seed CUB comparisons show a local gain over schema order at nominal K=8, but not over a training-fitted static order or the retrospective equal-mean-cost static reference. An exact-K16 BRiG-style sequential reference also trails fitted static in all four evaluated seeds. These are repeatedly inspected validation results, not locked-test evidence. No JEV-specific benefit, cross-dataset efficacy, or deployment speedup is claimed.
+Concept bottleneck models make predictions through interpretable concepts. **CBMJEV asks which concepts to measure next—and when another measurement is no longer worth its cost—when the measurements themselves can be wrong.**
 
-## The idea
+The responder sees the raw input; the task head predicts from acquired concept evidence: identities, values, and observation statuses. The controller uses this evidence and the remaining budget to choose a legal acquisition or `STOP`, then updates its decision when new evidence arrives. Declared query costs guide these choices; actual computation costs are recorded separately.
 
-```mermaid
-flowchart LR
-    X[Input image] --> R[Automatic concept responder]
-    H[Observed history and remaining budget] --> P[Acquisition policy]
-    P -->|choose next concept| R
-    R -->|fallible concept measurement| H
-    H -->|stop| C[Prediction from acquired concepts]
-```
+The paper develops this measurement-aware framework, analyzes when adaptive acquisition can help or fail, and evaluates it against fitted static alternatives. The repository contains the implementation, reproducibility tools, numerical theory checks, development results, and editable paper figures.
 
-The project treats **what was measured** and **what computation was actually performed** as separate questions. A smaller concept mask is not, by itself, evidence of lower inference cost; shared feature extraction and the cost of the responder matter. The code and evaluation notes keep these quantities distinct.
+## What is in this release?
 
-## Repository map
-
-| Path | What it contains |
+| Component | Contents |
 | --- | --- |
-| [`cbmjev/`](cbmjev/) | Core models, policies, responders, and evaluation utilities |
-| [`configs/`](configs/) · [`scripts/`](scripts/) | Portable experiment configs and run/analysis entry points |
-| [`tests_cbmjev/`](tests_cbmjev/) | Unit and evaluation-protocol tests |
-| [`docs/`](docs/) | Data adapters, experiment protocol, scope freeze, and release gates |
-| [`research/`](research/) · [`theory/`](theory/) | Literature notes, research decisions, and bounded theoretical analyses |
-| [`results/`](results/) | Selected validation-only aggregates and diagnostic snapshots; no raw datasets or checkpoints |
-| [`figures/editable/v5/`](figures/editable/v5/) | Editable PowerPoint figures with larger framework labels and PDF previews |
+| **Framework** | Typed concept responses, evidence-only policies, grouped acquisition, and explicit stopping |
+| **Analysis** | Conditions for evidence-state sufficiency; an equal-cost adaptive advantage construction; estimation, coverage, and stopping bounds, with their assumptions and proofs |
+| **Experiments** | CUB development comparisons across four seeds, including fitted static, adaptive value, and BRiG-style references |
+| **Reproducibility** | Data adapters, cross-fitting utilities, configs, protocol tests, and machine-readable result summaries |
+| **Figure assets** | Vector PDF figures, previews, and native editable PowerPoint figures |
 
-## Current evidence, without a positive-result spin
+The full manuscript PDF and LaTeX source are not included in this code release.
+A paper link will be added after the authors publish the manuscript.
 
-On CUB-200-2011, the adaptive value policies exceed a non-learned schema order at the nominal eight-group cap, yet remain below the stronger order fitted on training-only data. Across the examined equal-mean-declared-cost budgets, neither value policy has a positive four-seed mean accuracy difference from a retrospective static-prefix mixture. The exact-16-group BRiG-style reference has a mean accuracy difference of **−1.64 percentage points** and macro-F1 difference of **−1.44 points** against fitted static; all four accuracy differences are negative. The [machine-readable K16 diagnostic](results/diagnostics/cub_brig_rle_k16_gate_60_63_v1.json) and [equal-cost grid](results/main/cub_value_full_grid_equal_mean_cost_static_60_63_v1.json) are provided for inspection. These comparisons are descriptive and development-scoped; they do not show general inferiority of adaptive acquisition.
+### Evidence and scope
 
-The manuscript is being prepared as a bounded study of when sequential concept measurement is *not* yet justified. Its author list is pending confirmation, so the paper source/PDF is intentionally not published in this repository or submitted to arXiv yet.
+In the reported CUB development comparisons, the adaptive policies do not improve on the training-fitted static order. At exactly 16 acquired groups, the BRiG-style reference has a mean accuracy difference of **−1.64 percentage points** relative to fitted static over seeds 60–63. The [per-seed diagnostic](results/diagnostics/cub_brig_rle_k16_gate_60_63_v1.json) and [equal-mean-declared-cost comparison](results/main/cub_value_full_grid_equal_mean_cost_static_60_63_v1.json) make the comparisons inspectable.
 
-## Quick start
+These are repeatedly inspected **validation results**, not a locked-test evaluation. The constructive theoretical examples establish possibilities under stated assumptions, not empirical gains on CUB. The release does not establish a JEV-specific benefit, cross-dataset efficacy, or a deployment speedup; fewer acquired concepts need not mean less computation.
 
-Requires Python 3.9+ according to the package metadata. From the repository root:
+## Get started
+
+Requires Python 3.9+ and PyTorch 2.2+. Start from a fresh virtual environment and install a PyTorch build compatible with your hardware if using CUDA.
 
 ```bash
+git clone https://github.com/xll0328/CBMJEV.git
+cd CBMJEV
+python -m pip install --upgrade pip
 python -m pip install -e .
+python -m cbmjev doctor --check-device cpu
 python -m unittest discover -s tests_cbmjev -v
 ```
 
-For experiments, first read the [data adapter guide](docs/DATA_ADAPTERS.md), [experiment guide](docs/EXPERIMENTS.md), and [evaluation protocol](docs/EVALUATION.md). Dataset access, preparation, and compatible PyTorch/CUDA versions are experiment-specific. Set local paths in your own config; never commit credentials or machine-specific paths.
+The environment check does not download models or datasets. Follow the [quick-start guide](docs/QUICKSTART.md) for installation, a small runnable example, and the path to reproducing experiments. Obtain datasets separately under their original access conditions; they are not bundled with this repository.
 
-## Reproducibility and responsible use
+## Repository guide
 
-- Treat exploratory and validation results as development evidence—not test-set results.
-- Keep model selection, hyperparameter tuning, and policy design within training/validation splits; reserve test data for a predeclared final evaluation.
-- Read the [scope freeze](docs/PROJECT_SCOPE_FREEZE_20260924.md) and [release checklist](docs/RELEASE_CHECKLIST.md) before interpreting results or launching a run.
-- The public snapshot intentionally excludes datasets, checkpoints, private server configuration, and unpublished manuscript files. Obtain data through its official access process and follow its license and terms.
+| Path | Purpose |
+| --- | --- |
+| [`cbmjev/`](cbmjev/) | Models, acquisition policies, responders, training, and evaluation |
+| [`configs/`](configs/) · [`scripts/`](scripts/) | Experiment configurations and run/analysis entry points |
+| [`tests_cbmjev/`](tests_cbmjev/) | Unit tests and evaluation-protocol checks |
+| [`docs/`](docs/) | Installation, data preparation, and reproducibility guides |
+| [`results/`](results/) | Selected development summaries and diagnostics; no datasets or checkpoints |
+| [`figures/editable/v5/`](figures/editable/v5/) | Five editable PowerPoint figures, vector PDF exports, and previews |
+| [`research/`](research/) · [`theory/`](theory/README.md) | Research notes and numerical checks; historical notes do not replace the current manuscript |
 
-## License and citation
+For a new experiment, begin with the [data adapter guide](docs/DATA_ADAPTERS.md) and [evaluation protocol](docs/EVALUATION.md). The [scope freeze](docs/PROJECT_SCOPE_FREEZE_20260924.md) records the bounded empirical study; earlier [experiment plans](docs/EXPERIMENTS.md) include proposed work and are not a list of completed results. Keep dataset paths, credentials, and machine-specific settings out of commits.
 
-No software license or finalized citation metadata is currently declared. **Until a license is added, all rights are reserved; public visibility does not grant permission to reuse, modify, or redistribute this code.** Please do not infer paper authorship or citation details from this repository snapshot.
+## Citation
 
----
+If you use the framework, code, or analyses, please cite the manuscript. Machine-readable metadata is available in [`CITATION.cff`](CITATION.cff). An arXiv identifier will be added after submission; none has been assigned yet.
 
-<div align="center">
-<sub>CBMJEV · Research prototype · Evidence and claims are intentionally scoped to the artifacts currently available</sub>
-</div>
+```bibtex
+@misc{chen2026cbmjev,
+  title  = {{CBMJEV}: When Is It Worth Asking? Adaptive Concept Bottlenecks
+            with Fallible Measurements},
+  author = {Chen, Wenshuo and Li, Lujundong and Lai, Songning},
+  year   = {2026},
+  url    = {https://github.com/xll0328/CBMJEV},
+  note   = {Project manuscript and code}
+}
+```
+
+## License
+
+The project code is released under the [MIT License](LICENSE). The manuscript, figures, and third-party assets are not relicensed by that code license. See [third-party notices](THIRD_PARTY_NOTICES.md) for the scope and acknowledgments; datasets, model weights, and dependencies retain their original terms.

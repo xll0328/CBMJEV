@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a reproducible code or documentation problem.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include expected and actual behavior. Do not include credentials, patient data, or raw private examples.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Prefer synthetic input. Include the command, seed, and commit.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Python, PyTorch, operating system, optional dependencies, and device.

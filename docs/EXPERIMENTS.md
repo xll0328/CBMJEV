@@ -1,8 +1,10 @@
 # CBMJev 实验合同：先闭环，再论证
 
-日期：2026-09-22，2026-09-23 更新 sprint overlay。实验矩阵见 [experiment_matrix.json](../configs/experiment_matrix.json)；状态与可运行性必须分开记录。默认训练seeds为17、18、19，数据split固定seed17，不随训练seed重抽划分。
+> 历史设计文档：本页保留当时的实验计划，不是当前完成状态或论文结论。当前公开成果与运行入口见[仓库说明](../README.md)；未分发的内部排期、运行日志和草稿不属于复现依赖。
 
-2026-09-23 当前已有开发证据和活动作业，不再是“无真实数据结果”状态：CUB seed60 concept-budget frontier、CEBaB/ISIC boundary evidence、CUB seed61/62 live-profile cost accounting 已导入为 development evidence；CUB seed60/61/62 value-objective 三折和 seed63 robustness 分支正在服务器运行。权威状态看 [48h sprint status](../results/main/SPRINT_STATUS_20260923.md) 和 [delivery gates](../results/main/DELIVERY_GATES_20260923.md)。这些结果仍不等于最终 CVPR 主张；dynamic value-policy aggregate、强 baseline、locked test 与 citation/template audit 仍是门槛。
+日期：2026-09-22，2026-09-23 更新 sprint overlay。原实验矩阵为未分发的内部规划文件；公开配置见 [configs/](../configs/)。状态与可运行性必须分开记录。默认训练seeds为17、18、19，数据split固定seed17，不随训练seed重抽划分。
+
+2026-09-23 当时已有开发证据和活动作业，不再是“无真实数据结果”状态：CUB seed60 concept-budget frontier、CEBaB/ISIC boundary evidence、CUB seed61/62 live-profile cost accounting 已导入为 development evidence；CUB seed60/61/62 value-objective 三折和 seed63 robustness 分支当时正在服务器运行。该日期的 sprint status 与 delivery gates 为未分发的内部运行记录；目前已公开的聚合证据见 [results/](../results/)。这些结果仍不等于最终 CVPR 主张；dynamic value-policy aggregate、强 baseline、locked test 与 citation/template audit 仍是门槛。
 
 ## 1. 主张与反主张
 
@@ -45,7 +47,7 @@
 - **种子/预算：** seed17挑固定小配置；通过后17/18/19。相同R缓存的3个policy seeds仅支持条件于R的方差；正式涉及R稳定性时补R独立训练seeds。
 - **成功条件：** 动态方法相对强static/tree有实质量级的稳定改善；若声称新算法，需matched强AFA差异。阈值由pilot后、最终test前一次冻结。
 - **失败解释：** 静态已近小池参照，则该任务适应空间小；r不如V则保留V；只胜random不算研究成功。
-- **位置：** Table1、[Fig2左图](../figures/fig2_dual_cost_template.svg)。**MUST-RUN**。
+- **位置：** Table1、历史 Fig2 左图（原 SVG 画板未分发；已发布图表见[可编辑图册](../figures/editable/v5/README.md)）。**MUST-RUN**。
 
 ### B3：少查概念是否真的更快
 
@@ -57,7 +59,7 @@
 - **种子/预算：** live样本和重复计时顺序固定；warm至少两轮，cold独立。无须把所有开发λ全部live跑，先冻结至多3个代表操作点，但all-batch永不省略。
 - **成功条件：** 真实成本的节约可复现，并解释何种共享开销/候选数条件下失效；只有query节约则只写query节约。
 - **失败解释：** 全量共享头更便宜是合法负结果；不能人为按312次encoder调用重写其成本。8卡吞吐对单卡latency不公平。
-- **位置：** [Fig2右图](../figures/fig2_dual_cost_template.svg)、cost table、Fig3经验面板。**MUST-RUN for efficiency claim**；CEBaB cheap首发可先声明无效率结论。
+- **位置：** 历史 Fig2 右图（原 SVG 画板未分发；已发布图表见[可编辑图册](../figures/editable/v5/README.md)）、cost table、Fig3经验面板。**MUST-RUN for efficiency claim**；CEBaB cheap首发可先声明无效率结论。
 
 ### B4：NanoJev必要性与简约性
 
@@ -81,7 +83,7 @@
 - **案例：** 两个不同分叉和一个错误早停按预设规则选；已有gold纠错属于研究干预，不是医生交互或临床因果结果。
 - **成功条件：** 机制在真实条件中有对应并对保留配置有预测力；证书和经验风险含义准确，即使无候选通过也完整报告。
 - **失败解释：** toy成立现实不成立→收窄为toy说明；校准图改善但决策不变→仅风险估计分析；跨模式样本不足→取消子群保证。
-- **位置：** [Fig3](../figures/fig3_analytic_boundary.svg)、计划Fig4、理论/审计附录。**MUST-RUN for C1 and reliability statements**。
+- **位置：** 历史 Fig3（原 SVG 画板未分发；已发布图表见[可编辑图册](../figures/editable/v5/README.md)）、计划Fig4、理论/审计附录。**MUST-RUN for C1 and reliability statements**。
 
 ## 4. 初始网格不是全组合
 

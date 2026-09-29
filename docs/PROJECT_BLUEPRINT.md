@@ -1,5 +1,7 @@
 # Project CBMJev：从动态概念 Mask 到可复现的测量研究
 
+> 历史规划：以下状态、资源与目标对应文中日期，不是当前实验完成声明。当前成果、证据范围和使用入口见[仓库说明](../README.md)。
+
 日期：2026-09-22。工作项目名：`CBMJev`；它不是已经确立的新方法名、官方 Jev 合作项目或论文结果。数据只使用既有公开标注，新增专家概念/轨迹标注为 0。可用资源为 8×A100 或 8×4090，实际显存、互联与时段由服务器 preflight 确认。
 
 本文件管理本轮工程边界。更细的方法定义见 [METHOD_SPEC](../research/METHOD_SPEC.md)，优先权与近邻见 [novelty decision](../research/literature/NOVELTY_DECISION.md)，旧研究历史保留，不重写。
@@ -21,7 +23,7 @@ Mask 可以成为用户理解和开源接口的中心，但不能代替 AFA/CBM 
 | 全量预测后 top-k Mask | 所有预测概念 | 否，已支付全量感知 | 稀疏解释参照；不能据此宣称推理节省 |
 | 已观察证据条件的序贯 Mask | 当前已查询的值、状态、组身份，以及声明预算 | 可以 | 主研究对象 |
 
-同样画出 `m⊙z`，以上四种实现的信息与成本完全不同。介绍项目时，应优先展示依赖边界图而不是一张没有上下游的 Mask 热图。[已有图册](../figures/gallery.html)
+同样画出 `m⊙z`，以上四种实现的信息与成本完全不同。介绍项目时，应优先展示依赖边界图而不是一张没有上下游的 Mask 热图。[当前可编辑图册](../figures/editable/v5/README.md)
 
 ### 2.1 精确状态
 
@@ -94,7 +96,7 @@ L1 可以先公开，但应清楚标注 research prototype、真实验证范围�
 | 真实GPU训练与结果 | `NOT_RUN` | 服务器run目录与指标；本机不下载/训练真实数据 |
 | ACO/SEFA/BRiG论文级基线 | `PENDING` | 原方法/适配声明、实现核查、统一条件运行 |
 
-实现是否完成以 [RELEASE_CHECKLIST](RELEASE_CHECKLIST.md) 与 [本轮验证报告](VERIFICATION_20260922.md) 的证据为准，不以接口文件存在为准。运行参数见 [SERVER_RUNBOOK](SERVER_RUNBOOK.md)，学习实现限制见 [LEARNING](LEARNING.md)。strong AFA复现、nested cross-fit dispatcher和并发吞吐benchmark均未实现。
+实现是否完成须有 [RELEASE_CHECKLIST](RELEASE_CHECKLIST.md) 所要求的证据，不以接口文件存在为准。当时的验证日志和服务器运行手册为未分发的内部历史记录；当前运行入口见[仓库说明](../README.md)，学习实现限制见 [LEARNING](LEARNING.md)。本页日期时，strong AFA复现、nested cross-fit dispatcher和并发吞吐benchmark均未实现。
 
 ## 7. 默认工程边界
 
@@ -124,4 +126,4 @@ L1 可以先公开，但应清楚标注 research prototype、真实验证范围�
 
 概念描述编码、attention over acquired evidence、held-out concept pool transfer、同概念多测量模式与纠错后重规划都具有具体研究问题。进入条件是当前实验暴露了ID-only控制器、单源测量或冻结路径的明确瓶颈；最多启用一条。控制器即便使用语言模型也只看H，不得重新给它原图或完整评论。
 
-详细运行顺序见 [EXPERIMENTS](EXPERIMENTS.md)，服务器步骤见 [SERVER_RUNBOOK](SERVER_RUNBOOK.md)。历史 [论文草稿](../paper/STORY_AND_DRAFT.md) 和 [条件结论](../paper/RESULT_BRANCHES.md) 可以继续复用，但摘要/贡献的比较措辞必须等真实证据。
+历史实验顺序见 [EXPERIMENTS](EXPERIMENTS.md)，当前公开使用入口见[仓库说明](../README.md)。当时的服务器手册、论文预写稿与条件结论分支属于未分发的内部历史文档；摘要/贡献的比较措辞必须由真实证据支持。

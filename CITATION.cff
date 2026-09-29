@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "Please cite CBMJEV using this metadata. The full manuscript is not distributed here; an arXiv identifier will be added after submission."
+type: software
+title: "CBMJEV: Adaptive Concept Bottlenecks with Fallible Measurements"
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/xll0328/CBMJEV"
+url: "https://github.com/xll0328/CBMJEV"
+authors:
+  - family-names: Chen
+    given-names: Wenshuo
+    affiliation: "The Hong Kong University of Science and Technology (Guangzhou)"
+  - family-names: Li
+    given-names: Lujundong
+    affiliation: "The Hong Kong University of Science and Technology (Guangzhou)"
+  - family-names: Lai
+    given-names: Songning
+    affiliation: "The Hong Kong University of Science and Technology (Guangzhou)"
+preferred-citation:
+  type: report
+  title: "CBMJEV: When Is It Worth Asking? Adaptive Concept Bottlenecks with Fallible Measurements"
+  year: 2026
+  url: "https://github.com/xll0328/CBMJEV"
+  authors:
+    - family-names: Chen
+      given-names: Wenshuo
+    - family-names: Li
+      given-names: Lujundong
+    - family-names: Lai
+      given-names: Songning

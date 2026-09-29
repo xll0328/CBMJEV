@@ -13,6 +13,11 @@ describes the public-label, cross-fitted-response route used for CUB.
 
 ## Source and reproduction
 
+For the public release, start with the [figure reproduction guide](../../../docs/FIGURES.md).
+The existing PPTX is independently editable; rebuilding it from JavaScript
+requires the original external SDK/runtime and lab-workspace paths described
+below, which are not bundled or installed by the Python paper extra.
+
 The builder is `scripts/figures/build_editable_paper_figures.mjs`; version v5
 and later selects `scripts/figures/framework_layout_v5.mjs`. Earlier versions
 retain the v3 layout module. Set the presentation runtime variables documented

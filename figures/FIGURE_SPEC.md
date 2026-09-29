@@ -1,12 +1,14 @@
 # 论文图表施工图与审计
 
+> 历史图表规划：下文图号、SVG 画板与待填面板属于设计阶段，不是当前论文图号或已完成实验证据。历史画板未分发；当前 PPTX、PDF 与预览见[可编辑图册](editable/v5/README.md)。
+
 日期：2026-09-21。三张 SVG 为**可浏览草稿**，不是实验结果。真实数据前沿不画假点、假曲线或假误差条。Fig 3 的线只来自注明假设的解析 toy 公式；不能当真实数据优势。
 
-可直接打开 [gallery.html](gallery.html)。正文最多四张图、两张表；默认双栏通宽，约 7 英寸。SVG 画布宽 1280，最小文字 22 px，缩到 7 英寸约 8.7 pt。终稿进一步在真实 LaTeX 版面检查。配色采用蓝 `#0072B2`、橙 `#D55E00`、蓝绿 `#009E73`、中性灰，颜色与线型/标签双编码。
+原 `gallery.html` 是未分发的历史画板目录。该轮计划为正文最多四张图、两张表；默认双栏通宽，约 7 英寸。SVG 画布宽 1280，最小文字 22 px，缩到 7 英寸约 8.7 pt。终稿进一步在真实 LaTeX 版面检查。配色采用蓝 `#0072B2`、橙 `#D55E00`、蓝绿 `#009E73`、中性灰，颜色与线型/标签双编码。
 
 ## Fig 1：从固定预测向受限的测量过程
 
-类型：solution overview，兼具 motivated example。文件：[fig1_measurement_boundary.svg](fig1_measurement_boundary.svg)。
+类型：solution overview，兼具 motivated example。历史文件：`fig1_measurement_boundary.svg`（未分发）。
 
 为什么用比较式架构图：它一次说明三个关系——原输入只进入测量器、策略只基于已得证据、返回动作可以是一项/批次/STOP。单张医生流程图会把类比误画成专家监督事实；模块堆叠图则隐藏信息边界。
 
@@ -22,7 +24,7 @@ Caption 草稿：
 
 ## Fig 2：同一组实验，两种横轴
 
-类型：experimental results。文件：[fig2_dual_cost_template.svg](fig2_dual_cost_template.svg)。当前为无点、无数值的 PENDING 画板。
+类型：experimental results。历史文件：`fig2_dual_cost_template.svg`（未分发）。设计时为无点、无数值的 PENDING 画板。
 
 布局：1280×700。左右两个等高坐标轴，同一 y 范围；左 x = mean acquired concept groups，右 x = end-to-end latency (ms)。每一条线对应同一 policy family，同一 budget points，不能把左图的 query budget 数值复制到右图。All-batch 一般是一个点，不为了图面丰满连出虚构前沿。
 
@@ -40,7 +42,7 @@ Caption 模板：
 
 ## Fig 3：噪声与成本的机制边界
 
-类型：analytic motivated example + empirical mechanism。文件：[fig3_analytic_boundary.svg](fig3_analytic_boundary.svg)。当前左图为**解析 toy**，右图为真实实验待填面板。
+类型：analytic motivated example + empirical mechanism。历史文件：`fig3_analytic_boundary.svg`（未分发）。设计时左图为**解析 toy**，右图为真实实验待填面板。
 
 主文目的：解释为什么同一获取规则在两种测量器上可能得出相反结论；不把 XOR 或有限样本界声称为首次。
 
