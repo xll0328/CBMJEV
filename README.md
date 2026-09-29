@@ -83,7 +83,7 @@ The [CEBaB adaptive-controls guide](docs/CEBAB_ADAPTIVE_CONTROLS.md) documents n
 
 ## Citation
 
-If you use the framework, code, or analyses, please cite the manuscript. Machine-readable metadata is available in [`CITATION.cff`](CITATION.cff). An arXiv identifier will be added after submission; none has been assigned yet.
+If you use the framework, code, or analyses, please cite this repository for now. Machine-readable software metadata is available in [CITATION.cff](CITATION.cff). A manuscript link can be added if the authors publish one; no arXiv identifier is assigned here.
 
 ```bibtex
 @misc{chen2026cbmjev,
@@ -92,7 +92,7 @@ If you use the framework, code, or analyses, please cite the manuscript. Machine
   author = {Chen, Wenshuo and Li, Lujundong and Lai, Songning},
   year   = {2026},
   url    = {https://github.com/xll0328/CBMJEV},
-  note   = {Project manuscript and code}
+  note   = {Research code repository; manuscript not distributed here}
 }
 ```
 

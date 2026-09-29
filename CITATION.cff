@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite CBMJEV using this metadata. The full manuscript is not distributed here; an arXiv identifier will be added after submission."
+message: "Please cite this CBMJEV software repository using this metadata. No manuscript or arXiv identifier is distributed here."
 type: software
 title: "CBMJEV: Adaptive Concept Bottlenecks with Fallible Measurements"
 version: 0.1.0
