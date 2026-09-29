@@ -7,7 +7,7 @@
 **Wenshuo Chen · Lujundong Li · Songning Lai**<br>
 HKUST(GZ)
 
-[Overview](#overview) · [Quick start](docs/QUICKSTART.md) · [Results](results/README.md) · [Editable figures](figures/editable/v5/) · [Citation](#citation)
+[Overview](#overview) · [Quick start](docs/QUICKSTART.md) · [Results](results/README.md) · [Adaptive controls](docs/CEBAB_ADAPTIVE_CONTROLS.md) · [Editable figures](figures/editable/v5/) · [Citation](#citation)
 
 <img alt="Python 3.9 or newer" src="https://img.shields.io/badge/Python-3.9%2B-0072B2?style=flat-square">
 <img alt="PyTorch 2.2 or newer" src="https://img.shields.io/badge/PyTorch-2.2%2B-7B5BCB?style=flat-square">
@@ -38,6 +38,7 @@ The paper develops this measurement-aware framework, analyzes when adaptive acqu
 | **Analysis** | Conditions for evidence-state sufficiency; an equal-cost adaptive advantage construction; estimation, coverage, and stopping bounds, with their assumptions and proofs |
 | **Experiments** | CUB development comparisons across four seeds, including fitted static, adaptive value, and BRiG-style references |
 | **Reproducibility** | Data adapters, cross-fitting utilities, configs, protocol tests, and machine-readable result summaries |
+| **CEBaB controls** | Exploratory fixed-order/empirical-DP, error-transition, DIME-style and LAVOIR-style comparison scripts; no locked-test or method-win claim |
 | **Figure assets** | Vector PDF figures, previews, and native editable PowerPoint figures |
 
 The full manuscript PDF and LaTeX source are not included in this code release.
@@ -77,6 +78,8 @@ The environment check does not download models or datasets. Follow the [quick-st
 | [`research/`](research/) · [`theory/`](theory/README.md) | Research notes and numerical checks; historical notes do not replace the current manuscript |
 
 For a new experiment, begin with the [data adapter guide](docs/DATA_ADAPTERS.md) and [evaluation protocol](docs/EVALUATION.md). The [scope freeze](docs/PROJECT_SCOPE_FREEZE_20260924.md) records the bounded empirical study; earlier [experiment plans](docs/EXPERIMENTS.md) include proposed work and are not a list of completed results. Keep dataset paths, credentials, and machine-specific settings out of commits.
+
+The [CEBaB adaptive-controls guide](docs/CEBAB_ADAPTIVE_CONTROLS.md) documents newer exploratory validation comparisons. These scripts do not change the release's evidence boundary: a stronger static comparator can explain the apparent adaptive gain, and no consistent new acquisition-value advantage has been established.
 
 ## Citation
 

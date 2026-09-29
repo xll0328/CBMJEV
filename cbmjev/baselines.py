@@ -78,17 +78,26 @@ class EmpiricalLookaheadPolicy:
 
     @classmethod
     def fit(cls, rows, head, schema, depth=2, max_groups=7,
-            include_pairs=True, include_all=True, pairs=None, max_states=20000):
+            include_pairs=True, include_all=True, pairs=None, max_states=20000, order=None):
         if type(max_groups) is not int or max_groups < 1 or schema.num_groups > max_groups:
             raise ValueError("empirical lookahead is intentionally restricted to small K <= max_groups")
         if depth is not None and (type(depth) is not int or depth < 1):
             raise ValueError("depth must be positive integer or None for exhaustive empirical DP")
         if type(max_states) is not int or max_states < 1:
             raise ValueError("max_states must be positive")
+        if order is not None:
+            try:
+                order = tuple(order)
+            except TypeError as exc:
+                raise ValueError("order must be a full permutation of query groups") from exc
+            if (len(order) != schema.num_groups or any(type(group) is not int for group in order)
+                    or set(order) != set(range(schema.num_groups))):
+                raise ValueError("order must be a full permutation of query groups")
         records = training_rows(rows, "policy_fit", schema)
         result = cls()
         result.schema, result.head = schema, head
         result.depth = depth
+        result.order = order
         result.include_pairs, result.include_all = include_pairs, include_all
         result.pairs = None if pairs is None else tuple(tuple(pair) for pair in pairs)
         # Validate the candidate pool now rather than at a late recursive state.
@@ -106,12 +115,24 @@ class EmpiricalLookaheadPolicy:
                             "exact only for empirical model, budget, and fixed candidate actions",
                             "large-K requests rejected instead of silently approximated"],
         }
+        if order is not None:
+            result.report["frozen_order"] = list(order)
         return result
+
+    def _allowed_order_actions(self, state):
+        """Only STOP and the next unqueried singleton in the frozen order."""
+        mask = self.schema.group_mask(state)
+        next_group = next((group for group in self.order if not mask[group]), None)
+        return ((),) if next_group is None else ((), (next_group,))
 
     def action_values(self, observed, actions, remaining_budget, declared_cost, cost_weight=0.0,
                       *, remaining_groups=None):
         observed = validate_observed(observed, self.schema)
         actions = tuple(validate_action(action, observed, self.schema) for action in actions)
+        if self.order is not None:
+            allowed = self._allowed_order_actions(observed)
+            if any(action not in allowed for action in actions):
+                raise ValueError("action violates frozen order: expected STOP or next unqueried singleton")
         if (type(remaining_budget) not in (float, int) or math.isnan(remaining_budget)
                 or remaining_budget < 0 or type(cost_weight) not in (float, int)
                 or not math.isfinite(cost_weight) or cost_weight < 0):
@@ -183,6 +204,9 @@ class EmpiricalLookaheadPolicy:
                 # Reserve before recursion so the bound includes active states.
                 memo[key] = None
                 options = candidate_actions(state, self.schema, self.include_pairs, self.include_all, self.pairs)
+                if self.order is not None:
+                    allowed = self._allowed_order_actions(state)
+                    options = tuple(action for action in options if action in allowed)
                 options = tuple(action for action in options if len(action) <= groups_left)
                 memo[key] = min(q_value(state, action, budget, depth_left, groups_left) for action in options)
             return memo[key]
