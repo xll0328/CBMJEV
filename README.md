@@ -7,7 +7,7 @@
 **Wenshuo Chen · Lujundong Li · Songning Lai**<br>
 HKUST(GZ)
 
-[Overview](#overview) · [Quick start](docs/QUICKSTART.md) · [Results](results/README.md) · [Adaptive controls](docs/CEBAB_ADAPTIVE_CONTROLS.md) · [Editable figures](figures/editable/v5/) · [Citation](#citation)
+[Overview](#overview) · [Quick start](docs/QUICKSTART.md) · [Results](results/README.md) · [Reopened diagnostics](docs/REOPEN_DIAGNOSTICS_20260929.md) · [Editable figures](figures/editable/v5/) · [Citation](#citation)
 
 <img alt="Python 3.9 or newer" src="https://img.shields.io/badge/Python-3.9%2B-0072B2?style=flat-square">
 <img alt="PyTorch 2.2 or newer" src="https://img.shields.io/badge/PyTorch-2.2%2B-7B5BCB?style=flat-square">
@@ -39,6 +39,7 @@ The paper develops this measurement-aware framework, analyzes when adaptive acqu
 | **Experiments** | CUB development comparisons across four seeds, including fitted static, adaptive value, and BRiG-style references |
 | **Reproducibility** | Data adapters, cross-fitting utilities, configs, protocol tests, and machine-readable result summaries |
 | **CEBaB controls** | Exploratory fixed-order/empirical-DP, error-transition, DIME-style and LAVOIR-style comparison scripts; no locked-test or method-win claim |
+| **Reopened diagnostics** | Predictor-sufficiency, ASAP 18-aspect gold-acquisition, and two-source typed-measurement checks; development evidence without a confirmed method gain |
 | **Figure assets** | Vector PDF figures, previews, and native editable PowerPoint figures |
 
 The full manuscript PDF and LaTeX source are not included in this code release.
@@ -80,6 +81,8 @@ The environment check does not download models or datasets. Follow the [quick-st
 For a new experiment, begin with the [data adapter guide](docs/DATA_ADAPTERS.md) and [evaluation protocol](docs/EVALUATION.md). The [scope freeze](docs/PROJECT_SCOPE_FREEZE_20260924.md) records the bounded empirical study; earlier [experiment plans](docs/EXPERIMENTS.md) include proposed work and are not a list of completed results. Keep dataset paths, credentials, and machine-specific settings out of commits.
 
 The [CEBaB adaptive-controls guide](docs/CEBAB_ADAPTIVE_CONTROLS.md) documents newer exploratory validation comparisons. These scripts do not change the release's evidence boundary: a stronger static comparator can explain the apparent adaptive gain, and no consistent new acquisition-value advantage has been established.
+
+The [reopened diagnostics](docs/REOPEN_DIAGNOSTICS_20260929.md) add the previously missing predictor control, a public 18-aspect gold-concept task, and one real second-source measurement check. They establish branching and limited complementary corrections, but do not establish a robust task-risk/cost advantage. The corresponding code is included without private sample-level traces or manuscript files.
 
 ## Citation
 
