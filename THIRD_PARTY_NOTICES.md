@@ -32,3 +32,9 @@ paper source and should not be mistaken for a submission package.
   can be edited independently with a compatible presentation application.
 - The project is JEV-inspired, not an official JEV or NanoJev product. No
   upstream endorsement or independently verified benefit is implied.
+- The crowd-enVENT adapter references the authors' 2023 release and preserves
+  native human appraisal annotations. No corpus rows are bundled. Its named
+  corpus license is unspecified; research-use statements and citation requests
+  do not establish a universal redistribution or sublicensing grant. Neither
+  the source article's license nor this repository's MIT license is assigned
+  to the data. See [the development guide](docs/SELECTIVE_VERIFICATION.md).

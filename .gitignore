@@ -13,6 +13,8 @@ dist/
 data/
 artifacts/
 runs/
+/private_ops/
+/models/
 checkpoints/
 wandb/
 *.pt
